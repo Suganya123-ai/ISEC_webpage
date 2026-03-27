@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ISEC Workshop | Venue and Schedule</title>
+  <title>ISEC Workshop 2026 | Testing and Verification of Agentic AI Systems</title>
   <style>
     :root {
       --bg: #f4f7fb;
@@ -24,11 +24,11 @@
       font-family: "Segoe UI", Arial, sans-serif;
       color: var(--ink);
       background: var(--bg);
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     .container {
-      width: min(1080px, 92%);
+      width: min(1120px, 92%);
       margin: 0 auto;
     }
 
@@ -41,66 +41,82 @@
 
     .top-strip .container {
       display: flex;
-      gap: 12px;
+      gap: 14px;
       flex-wrap: wrap;
       align-items: center;
       padding: 9px 0;
     }
 
     .hero {
-      position: relative;
-      min-height: 300px;
+      min-height: 320px;
       display: grid;
       place-items: center;
       text-align: center;
-      overflow: hidden;
+      padding: 30px 12px;
       border-bottom: 1px solid var(--line);
       background:
-        linear-gradient(rgba(13, 43, 74, 0.60), rgba(13, 43, 74, 0.60)),
-        url("https://clubs.iiit.ac.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F3.08zgz2r2zuomr.jpg&w=1200&q=75") center/cover no-repeat;
-    }
-
-    .hero-content {
+        linear-gradient(rgba(13, 43, 74, 0.62), rgba(13, 43, 74, 0.62)),
+        url("https://upload.wikimedia.org/wikipedia/commons/8/83/IIITH_Boys_Hostel.jpg") center/cover no-repeat;
       color: #fff;
-      padding: 32px 16px;
     }
 
     .hero h1 {
-      margin: 0 0 8px;
-      font-size: clamp(1.4rem, 3vw, 2.3rem);
+      margin: 0 0 10px;
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
       line-height: 1.2;
     }
 
     .hero p {
       margin: 0;
-      opacity: 0.95;
-      font-size: 1rem;
+      opacity: 0.96;
     }
 
-    .subnav {
+    .main-nav-wrap {
       position: sticky;
       top: 0;
-      z-index: 10;
-      background: rgba(244, 247, 251, 0.94);
-      backdrop-filter: blur(5px);
+      z-index: 20;
+      backdrop-filter: blur(6px);
+      background: rgba(244, 247, 251, 0.95);
       border-bottom: 1px solid var(--line);
     }
 
-    .subnav .container {
+    .main-nav {
       display: flex;
-      gap: 10px;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
       padding: 10px 0;
     }
 
-    .subnav a {
+    .main-nav a {
+      text-decoration: none;
+      color: #123d69;
+      font-weight: 700;
+      font-size: 0.93rem;
+      padding: 6px 0;
+    }
+
+    .main-nav a:hover {
+      color: #0b5fa5;
+    }
+
+    .home-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 2px;
+      padding-bottom: 10px;
+    }
+
+    .home-links a {
       text-decoration: none;
       color: var(--brand);
-      font-weight: 700;
       background: var(--brand-soft);
-      border: 1px solid #cde0fb;
-      padding: 6px 10px;
+      border: 1px solid #cfe1ff;
       border-radius: 999px;
-      font-size: 0.9rem;
+      padding: 5px 10px;
+      font-size: 0.86rem;
+      font-weight: 700;
     }
 
     main section {
@@ -118,10 +134,29 @@
       font-size: 1.2rem;
     }
 
+    h3 {
+      margin: 10px 0 8px;
+      color: #163a63;
+      font-size: 1rem;
+    }
+
+    .lead {
+      color: var(--muted);
+      margin-top: 0;
+    }
+
+    ul, ol {
+      margin: 8px 0 0 22px;
+      padding: 0;
+    }
+
+    li { margin: 6px 0; }
+
     .venue-grid {
       display: grid;
       grid-template-columns: 1.2fr 1fr;
       gap: 16px;
+      align-items: start;
     }
 
     .venue-card {
@@ -137,7 +172,7 @@
       border: 1px solid #d9e5f7;
       display: block;
       object-fit: cover;
-      max-height: 280px;
+      max-height: 300px;
     }
 
     table {
@@ -159,7 +194,7 @@
     }
 
     .time {
-      width: 120px;
+      width: 130px;
       white-space: nowrap;
       font-weight: 700;
       color: #17365c;
@@ -179,16 +214,24 @@
     .b-break { background: #fff5e8; color: #8b5200; border-color: #ffdca9; }
     .b-panel { background: #ebfff6; color: #0f6a45; border-color: #b9efd9; }
 
+    .placeholder {
+      color: var(--muted);
+      background: #fbfdff;
+      border: 1px dashed #cfdced;
+      border-radius: 10px;
+      padding: 12px;
+    }
+
     footer {
       color: var(--muted);
       text-align: center;
       font-size: 0.9rem;
-      padding: 14px 0 28px;
+      padding: 16px 0 30px;
     }
 
-    @media (max-width: 860px) {
+    @media (max-width: 900px) {
       .venue-grid { grid-template-columns: 1fr; }
-      .hero { min-height: 240px; }
+      .hero { min-height: 250px; }
     }
   </style>
 </head>
@@ -196,56 +239,114 @@
   <div class="top-strip">
     <div class="container">
       <strong>ISEC Workshop</strong>
-      <span>Testing and Verification of Agentic AI Systems</span>
-      <span>09:00 - 14:35</span>
+      <span>Date: June 20, 2026</span>
+      <span>Time: 09:00 - 14:35</span>
+      <span>Venue: IIIT Hyderabad</span>
     </div>
   </div>
 
-  <header class="hero">
-    <div class="hero-content">
-      <h1>ISEC Workshop 2026</h1>
-      <p>Venue and Schedule</p>
+  <header class="hero" id="home">
+    <div>
+      <h1>Testing and Verification of Agentic AI Systems</h1>
+      <p>ISEC Workshop 2026 | June 20, 2026 | IIIT Hyderabad</p>
     </div>
   </header>
 
-  <nav class="subnav">
+  <div class="main-nav-wrap">
     <div class="container">
-      <a href="#venue">Venue</a>
-      <a href="#schedule">Schedule</a>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="#attending">Attending</a>
+        <a href="#program">Program</a>
+        <a href="#tracks">Tracks</a>
+        <a href="#organization">Organization</a>
+        <a href="#sponsorship">Sponsorship</a>
+        <a href="#search">Search</a>
+        <a href="#series">Series</a>
+      </nav>
+      <nav class="home-links" aria-label="Home Sections">
+        <a href="#abstract">Abstract</a>
+        <a href="#motivation">Motivation</a>
+        <a href="#objectives">Objectives</a>
+      </nav>
     </div>
-  </nav>
+  </div>
 
   <main class="container">
-    <section id="venue">
-      <h2>Venue</h2>
+    <section id="abstract">
+      <h2>Abstract</h2>
+      <p>
+        Autonomous AI agents are increasingly embedded in safety-critical and mission-critical software systems,
+        from healthcare decision support and financial trading to industrial automation and intelligent assistants.
+        Unlike conventional software, these agentic systems exhibit non-deterministic behavior, emergent properties,
+        and complex environmental interactions, making traditional testing and verification approaches inadequate.
+      </p>
+      <p>
+        This full-day workshop addresses the urgent need for rigorous, systematic methodologies to test and verify
+        agentic AI systems. The workshop brings academic and industry participants together to cover robustification
+        and alignment strategies, adversarial learning and resilience, systematic test case generation for autonomous
+        agents, performance metrics beyond accuracy and cost (including PAC-based certification and harmonic mean
+        metrics), and practical tools and frameworks such as RAGAS.
+      </p>
+    </section>
+
+    <section id="motivation">
+      <h2>Motivation</h2>
+      <p class="lead">
+        The rapid deployment of agentic AI systems has outpaced the development of adequate testing and verification
+        methodologies. This creates major risk in real-world deployments.
+      </p>
+      <h3>Why Traditional Testing Fails for Agents</h3>
+      <ul>
+        <li>Non-determinism: agent outputs vary across runs due to stochastic components, environment dynamics, and LLM sampling.</li>
+        <li>Emergent behavior: complex behaviors arise from agent-environment interactions not predictable from component-level tests.</li>
+        <li>Safety-critical autonomy: agents make autonomous decisions with financial, medical, and physical consequences.</li>
+        <li>Alignment drift: goals and behavior can diverge from intended human objectives over time.</li>
+        <li>Exponential state spaces: test burden grows combinatorially with environment and tool complexity.</li>
+      </ul>
+    </section>
+
+    <section id="objectives">
+      <h2>Objectives</h2>
+      <ol>
+        <li>Understand the verification landscape and current research frontiers in agentic AI testing.</li>
+        <li>Learn robustification and alignment techniques for behavior under perturbation.</li>
+        <li>Apply adversarial testing methods, defense mechanisms, and resilience measurement.</li>
+        <li>Design systematic test suites for meaningful coverage of agent behavior spaces.</li>
+        <li>Use advanced metrics beyond accuracy, including PAC-based and harmonic mean metrics.</li>
+        <li>Gain familiarity with modern evaluation tools such as RAGAS, LangSmith, and Guardrails AI.</li>
+        <li>Build stronger collaboration between academia and industry.</li>
+      </ol>
+    </section>
+
+    <section id="attending">
+      <h2>Attending</h2>
       <div class="venue-grid">
         <div class="venue-card">
-          <h3>International Institute of Information Technology Hyderabad</h3>
+          <h3>Venue: IIIT Hyderabad</h3>
+          <p>International Institute of Information Technology Hyderabad, Gachibowli, Hyderabad, Telangana, India.</p>
           <p>
-            The workshop will be hosted at IIIT Hyderabad.
-          </p>
-          <p>
-            Address: Gachibowli, Hyderabad, Telangana, India
-          </p>
-          <p>
-            Google Maps:
+            Maps:
             <a href="https://www.google.com/maps/search/?api=1&query=IIIT+Hyderabad" target="_blank" rel="noopener noreferrer">
-              View Venue Location
+              View Location
             </a>
           </p>
         </div>
         <div>
           <img
             class="venue-photo"
-            src="https://clubs.iiit.ac.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F3.08zgz2r2zuomr.jpg&w=1200&q=75"
-            alt="IIIT Hyderabad campus view"
+            src="https://upload.wikimedia.org/wikipedia/commons/8/83/IIITH_Boys_Hostel.jpg"
+            alt="IIIT Hyderabad campus"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='https://placehold.co/1200x800?text=IIIT+Hyderabad';"
           />
         </div>
       </div>
     </section>
 
-    <section id="schedule">
-      <h2>Schedule</h2>
+    <section id="program">
+      <h2>Program</h2>
+      <p><strong>Conference Date:</strong> June 20, 2026</p>
+      <p><strong>Time:</strong> 09:00 - 14:35</p>
       <table>
         <thead>
           <tr>
@@ -301,10 +402,49 @@
         </tbody>
       </table>
     </section>
+
+    <section id="tracks">
+      <h2>Tracks</h2>
+      <ul>
+        <li>Robustification and alignment strategies</li>
+        <li>Adversarial learning and resilience</li>
+        <li>Systematic test case generation for autonomous agents</li>
+        <li>Performance metrics beyond accuracy and cost</li>
+        <li>Tools and frameworks for agent testing such as RAGAS</li>
+      </ul>
+    </section>
+
+    <section id="organization">
+      <h2>Organization</h2>
+      <div class="placeholder">
+        Organizing committee details can be added here.
+      </div>
+    </section>
+
+    <section id="sponsorship">
+      <h2>Sponsorship</h2>
+      <div class="placeholder">
+        Sponsorship information can be added here.
+      </div>
+    </section>
+
+    <section id="search">
+      <h2>Search</h2>
+      <div class="placeholder">
+        Add conference site search integration here.
+      </div>
+    </section>
+
+    <section id="series">
+      <h2>Series</h2>
+      <div class="placeholder">
+        Add ISEC series links and edition history here.
+      </div>
+    </section>
   </main>
 
   <footer>
-    ISEC Workshop | Venue: IIIT Hyderabad
+    ISEC Workshop 2026 | Testing and Verification of Agentic AI Systems
   </footer>
 </body>
 </html>
