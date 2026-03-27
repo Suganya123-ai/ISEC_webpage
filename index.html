@@ -3,163 +3,146 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ISEC Workshop | Testing and Verification of Agentic AI Systems</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>ISEC Workshop | Venue and Schedule</title>
   <style>
     :root {
-      --bg: #f5f7fb;
+      --bg: #f4f7fb;
       --panel: #ffffff;
-      --ink: #172033;
-      --muted: #53607a;
-      --brand: #0d4f8b;
-      --brand-2: #1479c9;
-      --line: #dbe3ef;
-      --ok: #0e7c4f;
-      --warn: #8a5200;
-      --shadow: 0 10px 24px rgba(17, 34, 68, 0.08);
-      --radius: 14px;
+      --ink: #1f2a44;
+      --muted: #5a6a88;
+      --brand: #0f4f86;
+      --brand-soft: #e9f2ff;
+      --line: #d8e2f0;
+      --radius: 12px;
+      --shadow: 0 8px 22px rgba(18, 39, 73, 0.08);
     }
 
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      font-family: "Segoe UI", Arial, sans-serif;
       color: var(--ink);
-      background:
-        radial-gradient(circle at 100% 0%, rgba(20, 121, 201, 0.12), transparent 40%),
-        radial-gradient(circle at 0% 100%, rgba(13, 79, 139, 0.10), transparent 38%),
-        var(--bg);
-      line-height: 1.55;
+      background: var(--bg);
+      line-height: 1.5;
     }
 
     .container {
-      width: min(1100px, 92%);
+      width: min(1080px, 92%);
       margin: 0 auto;
     }
 
-    header.hero {
-      padding: 56px 0 28px;
+    .top-strip {
+      background: #0c3f6a;
+      color: #fff;
+      border-bottom: 1px solid #0a3253;
+      font-size: 0.92rem;
+    }
+
+    .top-strip .container {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 9px 0;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 300px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      overflow: hidden;
       border-bottom: 1px solid var(--line);
-      background: linear-gradient(180deg, #eef5ff 0%, #f5f7fb 100%);
+      background:
+        linear-gradient(rgba(13, 43, 74, 0.60), rgba(13, 43, 74, 0.60)),
+        url("https://clubs.iiit.ac.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F3.08zgz2r2zuomr.jpg&w=1200&q=75") center/cover no-repeat;
     }
 
-    .kicker {
-      color: var(--brand);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 700;
-      font-size: 0.82rem;
-      margin-bottom: 10px;
+    .hero-content {
+      color: #fff;
+      padding: 32px 16px;
     }
 
-    h1 {
-      margin: 0 0 10px;
-      font-size: clamp(1.5rem, 2.8vw, 2.4rem);
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.4rem, 3vw, 2.3rem);
       line-height: 1.2;
     }
 
-    .subtitle {
+    .hero p {
       margin: 0;
-      color: var(--muted);
-      max-width: 80ch;
+      opacity: 0.95;
+      font-size: 1rem;
     }
 
-    .meta {
-      margin-top: 18px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .pill {
-      background: #eaf2ff;
-      border: 1px solid #cfe1ff;
-      color: #103a68;
-      border-radius: 999px;
-      padding: 7px 12px;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    nav.topnav {
+    .subnav {
       position: sticky;
       top: 0;
-      z-index: 20;
-      backdrop-filter: blur(6px);
-      background: rgba(245, 247, 251, 0.85);
+      z-index: 10;
+      background: rgba(244, 247, 251, 0.94);
+      backdrop-filter: blur(5px);
       border-bottom: 1px solid var(--line);
     }
 
-    .topnav .container {
+    .subnav .container {
       display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
+      gap: 10px;
       padding: 10px 0;
     }
 
-    .topnav a {
-      color: var(--brand);
+    .subnav a {
       text-decoration: none;
-      font-weight: 600;
-      font-size: 0.93rem;
-      padding: 6px 8px;
-      border-radius: 8px;
+      color: var(--brand);
+      font-weight: 700;
+      background: var(--brand-soft);
+      border: 1px solid #cde0fb;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.9rem;
     }
 
-    .topnav a:hover { background: #e8f1ff; }
-
     main section {
-      margin: 22px 0;
-      padding: 22px;
+      margin: 18px 0;
       background: var(--panel);
       border: 1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
+      padding: 20px;
     }
 
     h2 {
-      margin-top: 0;
+      margin: 0 0 12px;
       color: var(--brand);
-      font-size: 1.25rem;
-      border-left: 4px solid var(--brand-2);
-      padding-left: 10px;
+      font-size: 1.2rem;
     }
 
-    .lead {
-      color: var(--muted);
-      margin-top: 0;
-    }
-
-    ul {
-      margin: 10px 0 0 22px;
-      padding: 0;
-    }
-
-    li { margin: 8px 0; }
-
-    .grid-2 {
+    .venue-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: 1.2fr 1fr;
       gap: 16px;
     }
 
-    .card {
-      background: #fbfdff;
-      border: 1px solid #e3ecfa;
-      border-radius: 12px;
+    .venue-card {
+      background: #f9fcff;
+      border: 1px solid #e3edf9;
+      border-radius: 10px;
       padding: 14px;
     }
 
-    .card h3 {
-      margin: 0 0 8px;
-      font-size: 1.02rem;
-      color: #14385f;
+    .venue-photo {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #d9e5f7;
+      display: block;
+      object-fit: cover;
+      max-height: 280px;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 8px;
       font-size: 0.95rem;
     }
 
@@ -172,201 +155,97 @@
 
     th {
       background: #edf4ff;
-      color: #14385f;
+      color: #183d65;
     }
 
     .time {
+      width: 120px;
       white-space: nowrap;
       font-weight: 700;
-      color: #17325c;
+      color: #17365c;
     }
 
-    .tag {
+    .badge {
       display: inline-block;
-      font-size: 0.8rem;
-      font-weight: 700;
-      border-radius: 999px;
-      padding: 4px 9px;
       margin-left: 8px;
-      border: 1px solid transparent;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      border: 1px solid;
     }
 
-    .tag.keynote { background: #e9f7ff; color: #0e4b78; border-color: #bfe4ff; }
-    .tag.break { background: #fff6e8; color: var(--warn); border-color: #ffdca4; }
-    .tag.panel { background: #ecfff7; color: var(--ok); border-color: #b9efd8; }
+    .b-keynote { background: #eaf6ff; color: #0f4f86; border-color: #bddfff; }
+    .b-break { background: #fff5e8; color: #8b5200; border-color: #ffdca9; }
+    .b-panel { background: #ebfff6; color: #0f6a45; border-color: #b9efd9; }
 
     footer {
-      text-align: center;
       color: var(--muted);
-      padding: 18px 0 36px;
-      font-size: 0.92rem;
+      text-align: center;
+      font-size: 0.9rem;
+      padding: 14px 0 28px;
     }
 
     @media (max-width: 860px) {
-      .grid-2 { grid-template-columns: 1fr; }
-      main section { padding: 16px; }
+      .venue-grid { grid-template-columns: 1fr; }
+      .hero { min-height: 240px; }
     }
   </style>
 </head>
 <body>
-  <header class="hero">
+  <div class="top-strip">
     <div class="container">
-      <p class="kicker">ISEC Workshop Proposal</p>
-      <h1>Testing and Verification of Agentic AI Systems</h1>
-      <p class="subtitle">
-        A full-day workshop focused on rigorous testing methodologies, robustification, alignment,
-        and verification frameworks for autonomous AI agents in safety-critical and mission-critical systems.
-      </p>
-      <div class="meta">
-        <span class="pill">Duration: Full day (~5.5 hours)</span>
-        <span class="pill">Time: 09:00 to 14:35</span>
-        <span class="pill">Speakers: 15 total</span>
-        <span class="pill">Attendees: 50 total</span>
-      </div>
+      <strong>ISEC Workshop</strong>
+      <span>Testing and Verification of Agentic AI Systems</span>
+      <span>09:00 - 14:35</span>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="hero-content">
+      <h1>ISEC Workshop 2026</h1>
+      <p>Venue and Schedule</p>
     </div>
   </header>
 
-  <nav class="topnav">
+  <nav class="subnav">
     <div class="container">
-      <a href="#theme">Theme</a>
-      <a href="#abstract">Abstract</a>
-      <a href="#motivation">Motivation</a>
-      <a href="#objectives">Objectives</a>
-      <a href="#speakers">Speakers</a>
+      <a href="#venue">Venue</a>
       <a href="#schedule">Schedule</a>
-      <a href="#budget">Budget</a>
     </div>
   </nav>
 
   <main class="container">
-    <section id="theme">
-      <h2>Theme and Key Focus Areas</h2>
-      <p class="lead"><strong>Theme:</strong> Testing and Verification of Agentic AI Systems</p>
-      <ul>
-        <li>Robustification and alignment strategies</li>
-        <li>Adversarial learning and resilience</li>
-        <li>Systematic test case generation for autonomous agents</li>
-        <li>Performance metrics beyond accuracy and cost (PAC-based certification, harmonic mean metrics)</li>
-        <li>Tools and frameworks for agent testing (for example, RAGAS)</li>
-      </ul>
-    </section>
-
-    <section id="abstract">
-      <h2>Abstract</h2>
-      <p>
-        Autonomous AI agents are increasingly embedded in safety-critical and mission-critical software systems,
-        from healthcare decision support and financial trading to industrial automation and intelligent assistants.
-        Unlike conventional software, these agentic systems exhibit non-deterministic behavior, emergent properties,
-        and complex environmental interactions, making traditional testing and verification approaches inadequate.
-      </p>
-      <p>
-        This full-day workshop addresses the urgent need for rigorous, systematic methodologies to test and verify
-        agentic AI systems. The workshop brings academic and industry participants together to cover robustification
-        and alignment strategies, adversarial learning and resilience, systematic test case generation for autonomous
-        agents, performance metrics beyond accuracy and cost (including PAC-based certification and harmonic mean
-        metrics), and practical tools and frameworks such as RAGAS.
-      </p>
-    </section>
-
-    <section id="motivation">
-      <h2>Motivation</h2>
-      <h3>The Testing Crisis for Agentic AI</h3>
-      <p>
-        Rapid deployment of agentic AI systems has outpaced the development of adequate testing and verification
-        methodologies. This gap introduces significant technical and operational risk.
-      </p>
-
-      <div class="grid-2">
-        <div class="card">
-          <h3>Why Traditional Testing Fails for Agents</h3>
-          <ul>
-            <li><strong>Non-determinism:</strong> outputs vary across runs due to stochastic components and sampling.</li>
-            <li><strong>Emergent behavior:</strong> agent-environment interactions produce hard-to-predict outcomes.</li>
-            <li><strong>Safety-critical autonomy:</strong> autonomous decisions can have financial, medical, or physical consequences.</li>
-            <li><strong>Alignment drift:</strong> goals and behavior may diverge from human intent over time and contexts.</li>
-            <li><strong>Exponential state spaces:</strong> environment and tool complexity drives combinatorial test burden.</li>
-          </ul>
+    <section id="venue">
+      <h2>Venue</h2>
+      <div class="venue-grid">
+        <div class="venue-card">
+          <h3>International Institute of Information Technology Hyderabad</h3>
+          <p>
+            The workshop will be hosted at IIIT Hyderabad.
+          </p>
+          <p>
+            Address: Gachibowli, Hyderabad, Telangana, India
+          </p>
+          <p>
+            Google Maps:
+            <a href="https://www.google.com/maps/search/?api=1&query=IIIT+Hyderabad" target="_blank" rel="noopener noreferrer">
+              View Venue Location
+            </a>
+          </p>
         </div>
-        <div class="card">
-          <h3>Current Gaps and Why Now</h3>
-          <ul>
-            <li>No standard methodology for autonomous agent test-suite generation.</li>
-            <li>Evaluation often stops at accuracy, ignoring cost, latency, robustness, explainability.</li>
-            <li>Adversarial testing remains ad hoc and incomplete.</li>
-            <li>Limited integrated tooling across fuzzing, property-based, metamorphic, and red-team methods.</li>
-            <li>Research and industry practice are still weakly connected.</li>
-            <li>LLM agents are entering production at scale while regulations are tightening (EU AI Act, NIST AI RMF).</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="objectives">
-      <h2>Workshop Objectives</h2>
-      <ol>
-        <li>Understand the verification landscape and current research frontiers in agentic AI testing.</li>
-        <li>Learn robustification and alignment techniques for behavior under perturbation.</li>
-        <li>Apply adversarial testing methods and resilience measurement approaches.</li>
-        <li>Design systematic test suites for meaningful behavior-space coverage.</li>
-        <li>Implement advanced metrics beyond accuracy, including PAC-based and harmonic approaches.</li>
-        <li>Use modern frameworks such as RAGAS, LangSmith, Guardrails AI, and related tools.</li>
-        <li>Build networks across academia and industry for sustained collaboration.</li>
-      </ol>
-    </section>
-
-    <section id="speakers">
-      <h2>Speakers and Participants</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Detail</th>
-            <th>Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Speakers</td>
-            <td>
-              15 total:
-              1 to 2 keynote speakers (45 min each), 5 invited/local speakers (20 min each),
-              5-member panel (45 min), plus optional interactive segment.
-            </td>
-          </tr>
-          <tr>
-            <td>Attendees</td>
-            <td>50 total (35 faculty and students + 15 Infosys participants)</td>
-          </tr>
-          <tr>
-            <td>Duration</td>
-            <td>Full day (~5.5 hours), 09:00 to 14:35</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="grid-2" style="margin-top:14px;">
-        <div class="card">
-          <h3>Session Types</h3>
-          <ul>
-            <li>International keynote (remote): verification strategies and agent safety perspectives</li>
-            <li>India invited speaker (in-person): robustification and alignment in deployed systems</li>
-            <li>Local talks: testing, adversarial resilience, metrics, and framework demos</li>
-            <li>Panel: bridging research and deployment practice for reliable agentic AI</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Speaker Placeholders</h3>
-          <ul>
-            <li>International Keynote Speaker: Name, Affiliation</li>
-            <li>India Invited Speaker: Name, Affiliation</li>
-            <li>Local Speaker 1 to 5: Names and affiliations</li>
-            <li>Panelists (5): academic and industry members</li>
-          </ul>
+        <div>
+          <img
+            class="venue-photo"
+            src="https://clubs.iiit.ac.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F3.08zgz2r2zuomr.jpg&w=1200&q=75"
+            alt="IIIT Hyderabad campus view"
+          />
         </div>
       </div>
     </section>
 
     <section id="schedule">
-      <h2>Day Flow</h2>
+      <h2>Schedule</h2>
       <table>
         <thead>
           <tr>
@@ -381,15 +260,15 @@
           </tr>
           <tr>
             <td class="time">09:15</td>
-            <td>Keynote 1, International Remote (45 min) <span class="tag keynote">Keynote</span></td>
+            <td>Keynote 1 - International Remote (45 min) <span class="badge b-keynote">Keynote</span></td>
           </tr>
           <tr>
             <td class="time">10:00</td>
-            <td>Tea Break (15 min) <span class="tag break">Break</span></td>
+            <td>Tea Break (15 min) <span class="badge b-break">Break</span></td>
           </tr>
           <tr>
             <td class="time">10:15</td>
-            <td>Keynote 2, India Speaker (45 min) <span class="tag keynote">Keynote</span></td>
+            <td>Keynote 2 - India Speaker (45 min) <span class="badge b-keynote">Keynote</span></td>
           </tr>
           <tr>
             <td class="time">11:00</td>
@@ -397,7 +276,7 @@
           </tr>
           <tr>
             <td class="time">12:00</td>
-            <td>Lunch (45 min) <span class="tag break">Break</span></td>
+            <td>Lunch (45 min) <span class="badge b-break">Break</span></td>
           </tr>
           <tr>
             <td class="time">12:45</td>
@@ -409,7 +288,7 @@
           </tr>
           <tr>
             <td class="time">13:35</td>
-            <td>Panel Discussion, 5 Panelists (45 min) <span class="tag panel">Panel</span></td>
+            <td>Panel - 5 panelists (45 min) <span class="badge b-panel">Panel</span></td>
           </tr>
           <tr>
             <td class="time">14:20</td>
@@ -422,60 +301,10 @@
         </tbody>
       </table>
     </section>
-
-    <section id="budget">
-      <h2>Budget (Estimated)</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Item</th>
-            <th>Estimated Cost (INR)</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Catering (50 people x 2 sessions)</td>
-            <td>25,000 to 35,000</td>
-            <td>Tea break and lunch</td>
-          </tr>
-          <tr>
-            <td>Printing (agenda, badges, feedback)</td>
-            <td>3,000 to 5,000</td>
-            <td>55 copies of materials</td>
-          </tr>
-          <tr>
-            <td>International speaker honorarium</td>
-            <td>10,000 to 25,000</td>
-            <td>Can be waived for invited keynote</td>
-          </tr>
-          <tr>
-            <td>Certificates and mementos</td>
-            <td>5,000 to 8,000</td>
-            <td>For 15 speakers</td>
-          </tr>
-          <tr>
-            <td>Stationery</td>
-            <td>2,500 to 3,000</td>
-            <td>50 sets</td>
-          </tr>
-          <tr>
-            <td>Miscellaneous</td>
-            <td>5,000</td>
-            <td>Signage and backup supplies</td>
-          </tr>
-          <tr>
-            <td><strong>Estimated Total</strong></td>
-            <td><strong>50,000 to 80,000</strong></td>
-            <td>Subject to venue and speaker arrangements</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
   </main>
 
   <footer>
-    ISEC Workshop Proposal Page | Testing and Verification of Agentic AI Systems
+    ISEC Workshop | Venue: IIIT Hyderabad
   </footer>
 </body>
 </html>
