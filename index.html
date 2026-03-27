@@ -6,276 +6,417 @@
   <title>ISEC Workshop 2026 | Testing and Verification of Agentic AI Systems</title>
   <style>
     :root {
-      --bg: #f4f7fb;
-      --panel: #ffffff;
-      --ink: #1f2a44;
-      --muted: #5a6a88;
-      --brand: #0f4f86;
-      --brand-soft: #e9f2ff;
-      --line: #d8e2f0;
-      --radius: 12px;
-      --shadow: 0 8px 22px rgba(18, 39, 73, 0.08);
+      --topbar-bg: #222;
+      --topbar-fg: #ccc;
+      --navbar-bg: #2c2c2c;
+      --navbar-fg: #ddd;
+      --navbar-hover: #fff;
+      --sidebar-bg: #f7f7f7;
+      --sidebar-border: #ddd;
+      --body-bg: #fff;
+      --text: #333;
+      --heading: #333;
+      --link: #337ab7;
+      --link-hover: #23527c;
+      --muted: #777;
+      --border: #ddd;
+      --section-bg: #fff;
+      --well-bg: #f5f5f5;
     }
 
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      color: var(--ink);
-      background: var(--bg);
-      line-height: 1.6;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--text);
+      background: var(--body-bg);
     }
 
-    .container {
-      width: min(1120px, 92%);
-      margin: 0 auto;
-    }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { color: var(--link-hover); text-decoration: underline; }
 
-    .top-strip {
-      background: #0c3f6a;
-      color: #fff;
-      border-bottom: 1px solid #0a3253;
-      font-size: 0.92rem;
-    }
-
-    .top-strip .container {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      align-items: center;
-      padding: 9px 0;
-    }
-
-    .hero {
-      min-height: 320px;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 30px 12px;
-      border-bottom: 1px solid var(--line);
-      background:
-        linear-gradient(rgba(13, 43, 74, 0.62), rgba(13, 43, 74, 0.62)),
-        url("https://upload.wikimedia.org/wikipedia/commons/8/83/IIITH_Boys_Hostel.jpg") center/cover no-repeat;
-      color: #fff;
-    }
-
-    .hero h1 {
-      margin: 0 0 10px;
-      font-size: clamp(1.5rem, 3vw, 2.5rem);
-      line-height: 1.2;
-    }
-
-    .hero p {
-      margin: 0;
-      opacity: 0.96;
-    }
-
-    .main-nav-wrap {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(6px);
-      background: rgba(244, 247, 251, 0.95);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .main-nav {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      align-items: center;
-      padding: 10px 0;
-    }
-
-    .main-nav a {
-      text-decoration: none;
-      color: #123d69;
-      font-weight: 700;
-      font-size: 0.93rem;
+    /* ─── TOP BAR (conference name + date + venue) ─── */
+    .topbar {
+      background: var(--topbar-bg);
+      color: var(--topbar-fg);
+      font-size: 13px;
       padding: 6px 0;
+      border-bottom: 1px solid #111;
     }
-
-    .main-nav a:hover {
-      color: #0b5fa5;
-    }
-
-    .home-links {
+    .topbar .wrap {
+      max-width: 1170px;
+      margin: 0 auto;
+      padding: 0 15px;
       display: flex;
-      gap: 10px;
+      align-items: center;
       flex-wrap: wrap;
-      margin-top: 2px;
-      padding-bottom: 10px;
+      gap: 8px;
+    }
+    .topbar a { color: #8cb4d8; }
+    .topbar a:hover { color: #fff; text-decoration: none; }
+    .topbar .conf-title { font-weight: 700; color: #fff; margin-right: 6px; }
+    .topbar .venue-date { color: #aaa; }
+
+    /* ─── MAIN NAVBAR ─── */
+    .navbar {
+      background: var(--navbar-bg);
+      border-bottom: 3px solid #337ab7;
+    }
+    .navbar .wrap {
+      max-width: 1170px;
+      margin: 0 auto;
+      padding: 0 15px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .navbar a {
+      display: inline-block;
+      color: var(--navbar-fg);
+      padding: 12px 14px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background .15s;
+    }
+    .navbar a:hover,
+    .navbar a.active {
+      background: #444;
+      color: var(--navbar-hover);
+      text-decoration: none;
+    }
+    .navbar .right { margin-left: auto; }
+    .navbar .right a { font-size: 12px; padding: 12px 10px; color: #999; }
+    .navbar .right a:hover { color: #fff; }
+
+    /* ─── BREADCRUMB ─── */
+    .breadcrumb-bar {
+      background: #f8f8f8;
+      border-bottom: 1px solid var(--border);
+      padding: 8px 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .breadcrumb-bar .wrap {
+      max-width: 1170px;
+      margin: 0 auto;
+      padding: 0 15px;
     }
 
-    .home-links a {
-      text-decoration: none;
-      color: var(--brand);
-      background: var(--brand-soft);
-      border: 1px solid #cfe1ff;
-      border-radius: 999px;
-      padding: 5px 10px;
-      font-size: 0.86rem;
+    /* ─── PAGE LAYOUT: content + sidebar ─── */
+    .page-wrap {
+      max-width: 1170px;
+      margin: 0 auto;
+      padding: 20px 15px 40px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 30px;
+    }
+
+    /* ─── MAIN CONTENT ─── */
+    .content h1 {
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--heading);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+    }
+    .content h2 {
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--heading);
+      margin: 28px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #eee;
+    }
+    .content h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 20px 0 8px;
+    }
+    .content p { margin: 0 0 12px; }
+    .content ul, .content ol { margin: 4px 0 12px 28px; }
+    .content li { margin: 4px 0; }
+
+    .venue-img {
+      width: 100%;
+      max-height: 280px;
+      object-fit: cover;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+      margin: 12px 0;
+    }
+
+    /* ─── KEYNOTE / SPEAKER CARDS ─── */
+    .speaker-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 16px;
+      margin: 16px 0;
+    }
+    .speaker-card {
+      text-align: center;
+      background: #fafafa;
+      border: 1px solid #eee;
+      border-radius: 4px;
+      padding: 14px 8px;
+    }
+    .speaker-card .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #d9e3f0;
+      margin: 0 auto 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6a8bb5;
+      font-size: 28px;
       font-weight: 700;
     }
+    .speaker-card .name { font-weight: 600; font-size: 13px; }
+    .speaker-card .role { font-size: 11px; color: var(--muted); margin-top: 4px; }
 
-    main section {
-      margin: 18px 0;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 20px;
+    /* ─── NEWS TABLE ─── */
+    .news-list { list-style: none; margin: 0; padding: 0; }
+    .news-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
     }
+    .news-list .date { font-size: 12px; color: var(--muted); }
 
-    h2 {
-      margin: 0 0 12px;
-      color: var(--brand);
-      font-size: 1.2rem;
-    }
-
-    h3 {
-      margin: 10px 0 8px;
-      color: #163a63;
-      font-size: 1rem;
-    }
-
-    .lead {
-      color: var(--muted);
-      margin-top: 0;
-    }
-
-    ul, ol {
-      margin: 8px 0 0 22px;
-      padding: 0;
-    }
-
-    li { margin: 6px 0; }
-
-    .venue-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 16px;
-      align-items: start;
-    }
-
-    .venue-card {
-      background: #f9fcff;
-      border: 1px solid #e3edf9;
-      border-radius: 10px;
-      padding: 14px;
-    }
-
-    .venue-photo {
-      width: 100%;
-      border-radius: 10px;
-      border: 1px solid #d9e5f7;
-      display: block;
-      object-fit: cover;
-      max-height: 300px;
-    }
-
-    table {
+    /* ─── SCHEDULE TABLE ─── */
+    .schedule-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.95rem;
+      margin: 12px 0;
     }
-
-    th, td {
-      border: 1px solid var(--line);
-      padding: 10px;
+    .schedule-table th,
+    .schedule-table td {
+      border: 1px solid #ddd;
+      padding: 8px 10px;
+      font-size: 13px;
       text-align: left;
-      vertical-align: top;
     }
-
-    th {
-      background: #edf4ff;
-      color: #183d65;
+    .schedule-table th {
+      background: #f5f5f5;
+      font-weight: 600;
     }
-
-    .time {
-      width: 130px;
-      white-space: nowrap;
+    .schedule-table .time-col {
+      width: 100px;
       font-weight: 700;
-      color: #17365c;
+      white-space: nowrap;
+      color: #333;
     }
-
     .badge {
       display: inline-block;
-      margin-left: 8px;
-      padding: 2px 8px;
-      border-radius: 999px;
-      font-size: 0.78rem;
+      padding: 2px 7px;
+      border-radius: 3px;
+      font-size: 11px;
       font-weight: 700;
-      border: 1px solid;
+      margin-left: 6px;
+    }
+    .badge-keynote { background: #d9edf7; color: #31708f; }
+    .badge-break { background: #fcf8e3; color: #8a6d3b; }
+    .badge-panel { background: #dff0d8; color: #3c763d; }
+
+    /* ─── TRACK PILLS ─── */
+    .track-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 10px 0;
+    }
+    .track-pills a {
+      display: inline-block;
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-size: 12px;
+      color: #555;
+      background: #fafafa;
+    }
+    .track-pills a:hover { background: #337ab7; color: #fff; border-color: #337ab7; text-decoration: none; }
+
+    /* ─── SIDEBAR ─── */
+    .sidebar {}
+    .sidebar-block {
+      background: var(--sidebar-bg);
+      border: 1px solid var(--sidebar-border);
+      border-radius: 4px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+    .sidebar-block h4 {
+      margin: 0;
+      padding: 10px 14px;
+      font-size: 14px;
+      font-weight: 600;
+      background: #eee;
+      border-bottom: 1px solid #ddd;
+      color: #333;
+    }
+    .sidebar-block ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .sidebar-block li a {
+      display: block;
+      padding: 7px 14px;
+      font-size: 13px;
+      border-bottom: 1px solid #eee;
+      color: var(--link);
+    }
+    .sidebar-block li a:hover { background: #e8f0fe; text-decoration: none; }
+    .sidebar-block li:last-child a { border-bottom: none; }
+
+    .sidebar-block .supporters {
+      padding: 10px 14px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .sidebar-block .supporters table { width: 100%; }
+    .sidebar-block .supporters td {
+      padding: 4px 0;
+      border: none;
+      font-size: 12px;
     }
 
-    .b-keynote { background: #eaf6ff; color: #0f4f86; border-color: #bddfff; }
-    .b-break { background: #fff5e8; color: #8b5200; border-color: #ffdca9; }
-    .b-panel { background: #ebfff6; color: #0f6a45; border-color: #b9efd9; }
-
-    .placeholder {
-      color: var(--muted);
-      background: #fbfdff;
-      border: 1px dashed #cfdced;
-      border-radius: 10px;
-      padding: 12px;
-    }
-
-    footer {
-      color: var(--muted);
+    /* ─── FOOTER ─── */
+    .site-footer {
+      background: #2c2c2c;
+      color: #999;
+      font-size: 12px;
+      padding: 16px 0;
       text-align: center;
-      font-size: 0.9rem;
-      padding: 16px 0 30px;
+      border-top: 3px solid #337ab7;
     }
+    .site-footer a { color: #8cb4d8; }
 
-    @media (max-width: 900px) {
-      .venue-grid { grid-template-columns: 1fr; }
-      .hero { min-height: 250px; }
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 860px) {
+      .page-wrap { grid-template-columns: 1fr; }
+      .navbar .wrap { flex-direction: column; align-items: flex-start; }
+      .navbar a { padding: 8px 14px; }
+      .speaker-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
     }
   </style>
 </head>
 <body>
-  <div class="top-strip">
-    <div class="container">
-      <strong>ISEC Workshop</strong>
-      <span>Date: June 20, 2026</span>
-      <span>Time: 09:00 - 14:35</span>
-      <span>Venue: IIIT Hyderabad</span>
+
+  <!-- ═══ TOP BAR ═══ -->
+  <div class="topbar">
+    <div class="wrap">
+      <span class="conf-title">ISEC Workshop 2026</span>
+      <span class="venue-date">Sat 20 June 2026</span>
+      <a href="#attending">IIIT Hyderabad, Telangana, India</a>
     </div>
   </div>
 
-  <header class="hero" id="home">
-    <div>
+  <!-- ═══ MAIN NAVBAR ═══ -->
+  <nav class="navbar">
+    <div class="wrap">
+      <a href="#home" class="active">Home</a>
+      <a href="#attending">Attending</a>
+      <a href="#program">Program</a>
+      <a href="#tracks">Tracks</a>
+      <a href="#organization">Organization</a>
+      <a href="#sponsorship">Sponsorship</a>
+      <a href="#search-section">&#128269;</a>
+      <span class="right">
+        <a href="#signin">Sign in</a>
+        <a href="#signup">Sign up</a>
+      </span>
+    </div>
+  </nav>
+
+  <!-- ═══ BREADCRUMB ═══ -->
+  <div class="breadcrumb-bar">
+    <div class="wrap">
+      <a href="#series">ISEC Workshop 2026</a> (<a href="#series">series</a>)
+    </div>
+  </div>
+
+  <!-- ═══ PAGE CONTENT + SIDEBAR ═══ -->
+  <div class="page-wrap">
+
+    <!-- ─── MAIN CONTENT ─── -->
+    <div class="content" id="home">
+
       <h1>Testing and Verification of Agentic AI Systems</h1>
-      <p>ISEC Workshop 2026 | June 20, 2026 | IIIT Hyderabad</p>
-    </div>
-  </header>
 
-  <div class="main-nav-wrap">
-    <div class="container">
-      <nav class="main-nav" aria-label="Primary">
-        <a href="#attending">Attending</a>
-        <a href="#program">Program</a>
-        <a href="#tracks">Tracks</a>
-        <a href="#organization">Organization</a>
-        <a href="#sponsorship">Sponsorship</a>
-        <a href="#search">Search</a>
-        <a href="#series">Series</a>
-      </nav>
-      <nav class="home-links" aria-label="Home Sections">
-        <a href="#abstract">Abstract</a>
-        <a href="#motivation">Motivation</a>
-        <a href="#objectives">Objectives</a>
-      </nav>
-    </div>
-  </div>
-
-  <main class="container">
-    <section id="abstract">
-      <h2>Abstract</h2>
       <p>
-        Autonomous AI agents are increasingly embedded in safety-critical and mission-critical software systems,
+        Welcome to the ISEC Workshop 2026 on <strong>Testing and Verification of Agentic AI Systems</strong>,
+        co-located with the Innovations in Software Engineering Conference (ISEC).
+        This full-day workshop is organized under the umbrella of ACM India and will be held at
+        <strong>IIIT Hyderabad</strong> on <strong>June 20, 2026</strong>.
+      </p>
+      <p>
+        The workshop brings together researchers, practitioners, industry professionals, and students
+        to address the urgent need for rigorous testing methodologies for autonomous AI agents deployed
+        in safety-critical and mission-critical systems.
+      </p>
+
+      <img
+        class="venue-img"
+        src="https://upload.wikimedia.org/wikipedia/commons/8/83/IIITH_Boys_Hostel.jpg"
+        alt="IIIT Hyderabad campus"
+        loading="lazy"
+        onerror="this.onerror=null;this.src='https://placehold.co/1170x300?text=IIIT+Hyderabad';"
+      />
+
+      <!-- KEYNOTE SPEAKERS -->
+      <h3>Keynote Speakers</h3>
+      <div class="speaker-grid">
+        <div class="speaker-card">
+          <div class="avatar">K1</div>
+          <div class="name">International Keynote</div>
+          <div class="role">Remote, 45 min<br />Verification Strategies for Autonomous Agents</div>
+        </div>
+        <div class="speaker-card">
+          <div class="avatar">K2</div>
+          <div class="name">India Invited Speaker</div>
+          <div class="role">In-person, 45 min<br />Robustification &amp; Alignment for Deployed Systems</div>
+        </div>
+      </div>
+
+      <h3>Invited Speakers</h3>
+      <div class="speaker-grid">
+        <div class="speaker-card">
+          <div class="avatar">S1</div>
+          <div class="name">Speaker 1</div>
+          <div class="role">Systematic Test Case Generation for LLM Agents</div>
+        </div>
+        <div class="speaker-card">
+          <div class="avatar">S2</div>
+          <div class="name">Speaker 2</div>
+          <div class="role">Adversarial Learning &amp; Resilience</div>
+        </div>
+        <div class="speaker-card">
+          <div class="avatar">S3</div>
+          <div class="name">Speaker 3</div>
+          <div class="role">PAC-based Certification Metrics</div>
+        </div>
+        <div class="speaker-card">
+          <div class="avatar">S4</div>
+          <div class="name">Speaker 4</div>
+          <div class="role">RAGAS &amp; Evaluation Frameworks</div>
+        </div>
+        <div class="speaker-card">
+          <div class="avatar">S5</div>
+          <div class="name">Speaker 5</div>
+          <div class="role">Industry: Testing Agents at Scale (Infosys)</div>
+        </div>
+      </div>
+
+      <!-- ABSTRACT -->
+      <h2 id="abstract">Abstract</h2>
+      <p>
+        Autonomous AI agents are increasingly embedded in safety-critical and mission-critical software systems —
         from healthcare decision support and financial trading to industrial automation and intelligent assistants.
         Unlike conventional software, these agentic systems exhibit non-deterministic behavior, emergent properties,
         and complex environmental interactions, making traditional testing and verification approaches inadequate.
@@ -287,164 +428,205 @@
         agents, performance metrics beyond accuracy and cost (including PAC-based certification and harmonic mean
         metrics), and practical tools and frameworks such as RAGAS.
       </p>
-    </section>
 
-    <section id="motivation">
-      <h2>Motivation</h2>
-      <p class="lead">
-        The rapid deployment of agentic AI systems has outpaced the development of adequate testing and verification
-        methodologies. This creates major risk in real-world deployments.
+      <!-- MOTIVATION -->
+      <h2 id="motivation">Motivation</h2>
+      <p>
+        The rapid deployment of agentic AI systems has outpaced the development of adequate testing and
+        verification methodologies. This gap creates significant risks:
       </p>
       <h3>Why Traditional Testing Fails for Agents</h3>
       <ul>
-        <li>Non-determinism: agent outputs vary across runs due to stochastic components, environment dynamics, and LLM sampling.</li>
-        <li>Emergent behavior: complex behaviors arise from agent-environment interactions not predictable from component-level tests.</li>
-        <li>Safety-critical autonomy: agents make autonomous decisions with financial, medical, and physical consequences.</li>
-        <li>Alignment drift: goals and behavior can diverge from intended human objectives over time.</li>
-        <li>Exponential state spaces: test burden grows combinatorially with environment and tool complexity.</li>
+        <li><strong>Non-determinism:</strong> Agent outputs vary across runs due to stochastic components, environment dynamics, and LLM sampling.</li>
+        <li><strong>Emergent Behavior:</strong> Complex outcomes arise from agent-environment interactions that cannot be predicted from component-level tests alone.</li>
+        <li><strong>Safety-Critical Autonomy:</strong> Agents make autonomous decisions with real-world consequences (financial, medical, physical).</li>
+        <li><strong>Alignment Drift:</strong> Ensuring agent goals and behaviors remain aligned with human intent over time and across contexts.</li>
+        <li><strong>Exponential State Spaces:</strong> Testing burden grows combinatorially with environment complexity, tool availability, and multi-step reasoning chains.</li>
       </ul>
-    </section>
+      <h3>Why Now</h3>
+      <ul>
+        <li>LLM-based agents (AutoGPT, CrewAI, LangGraph) are entering production at scale.</li>
+        <li>Regulatory pressure is mounting (EU AI Act, NIST AI RMF).</li>
+        <li>The software engineering community needs proven frameworks before deployment outpaces governance.</li>
+      </ul>
 
-    <section id="objectives">
-      <h2>Objectives</h2>
+      <!-- OBJECTIVES -->
+      <h2 id="objectives">Objectives</h2>
       <ol>
-        <li>Understand the verification landscape and current research frontiers in agentic AI testing.</li>
-        <li>Learn robustification and alignment techniques for behavior under perturbation.</li>
-        <li>Apply adversarial testing methods, defense mechanisms, and resilience measurement.</li>
+        <li>Understand the verification landscape and current research frontiers in agentic AI system testing.</li>
+        <li>Learn robustification and alignment techniques for dependable behavior under perturbation.</li>
+        <li>Apply adversarial testing methods, defense mechanisms, and resilience measurement for autonomous agents.</li>
         <li>Design systematic test suites for meaningful coverage of agent behavior spaces.</li>
-        <li>Use advanced metrics beyond accuracy, including PAC-based and harmonic mean metrics.</li>
-        <li>Gain familiarity with modern evaluation tools such as RAGAS, LangSmith, and Guardrails AI.</li>
-        <li>Build stronger collaboration between academia and industry.</li>
+        <li>Implement advanced metrics beyond accuracy — PAC-based certification, harmonic mean metrics, and multi-dimensional performance measurement.</li>
+        <li>Gain hands-on familiarity with tools like RAGAS, LangSmith, and Guardrails AI for agent evaluation.</li>
+        <li>Build professional networks connecting academia and industry for sustained collaboration.</li>
       </ol>
-    </section>
 
-    <section id="attending">
-      <h2>Attending</h2>
-      <div class="venue-grid">
-        <div class="venue-card">
-          <h3>Venue: IIIT Hyderabad</h3>
-          <p>International Institute of Information Technology Hyderabad, Gachibowli, Hyderabad, Telangana, India.</p>
-          <p>
-            Maps:
-            <a href="https://www.google.com/maps/search/?api=1&query=IIIT+Hyderabad" target="_blank" rel="noopener noreferrer">
-              View Location
-            </a>
-          </p>
-        </div>
-        <div>
-          <img
-            class="venue-photo"
-            src="https://upload.wikimedia.org/wikipedia/commons/8/83/IIITH_Boys_Hostel.jpg"
-            alt="IIIT Hyderabad campus"
-            loading="lazy"
-            onerror="this.onerror=null;this.src='https://placehold.co/1200x800?text=IIIT+Hyderabad';"
-          />
-        </div>
-      </div>
-    </section>
+      <!-- ATTENDING / VENUE -->
+      <h2 id="attending">Attending</h2>
+      <h3>Venue: IIIT Hyderabad</h3>
+      <p>
+        International Institute of Information Technology, Hyderabad<br />
+        Gachibowli, Hyderabad, Telangana 500 032, India<br />
+        <a href="https://www.google.com/maps/search/?api=1&query=IIIT+Hyderabad" target="_blank" rel="noopener noreferrer">View on Google Maps &rarr;</a>
+      </p>
+      <img
+        class="venue-img"
+        src="https://upload.wikimedia.org/wikipedia/commons/8/83/IIITH_Boys_Hostel.jpg"
+        alt="IIIT Hyderabad campus view"
+        loading="lazy"
+        onerror="this.onerror=null;this.src='https://placehold.co/1170x300?text=IIIT+Hyderabad';"
+      />
 
-    <section id="program">
-      <h2>Program</h2>
-      <p><strong>Conference Date:</strong> June 20, 2026</p>
-      <p><strong>Time:</strong> 09:00 - 14:35</p>
-      <table>
+      <!-- PROGRAM / SCHEDULE -->
+      <h2 id="program">Program</h2>
+      <p><strong>Date:</strong> Saturday, June 20, 2026 &nbsp;|&nbsp; <strong>Duration:</strong> Full day, 09:00 – 14:35</p>
+
+      <table class="schedule-table">
         <thead>
-          <tr>
-            <th>Time</th>
-            <th>Session</th>
-          </tr>
+          <tr><th>Time</th><th>Session</th></tr>
         </thead>
         <tbody>
           <tr>
-            <td class="time">09:00</td>
+            <td class="time-col">09:00</td>
             <td>Opening (15 min)</td>
           </tr>
           <tr>
-            <td class="time">09:15</td>
-            <td>Keynote 1 - International Remote (45 min) <span class="badge b-keynote">Keynote</span></td>
+            <td class="time-col">09:15</td>
+            <td>Keynote 1 — International Remote (45 min) <span class="badge badge-keynote">Keynote</span></td>
           </tr>
           <tr>
-            <td class="time">10:00</td>
-            <td>Tea Break (15 min) <span class="badge b-break">Break</span></td>
+            <td class="time-col">10:00</td>
+            <td>&#9749; Tea Break (15 min) <span class="badge badge-break">Break</span></td>
           </tr>
           <tr>
-            <td class="time">10:15</td>
-            <td>Keynote 2 - India Speaker (45 min) <span class="badge b-keynote">Keynote</span></td>
+            <td class="time-col">10:15</td>
+            <td>Keynote 2 — India Speaker (45 min) <span class="badge badge-keynote">Keynote</span></td>
           </tr>
           <tr>
-            <td class="time">11:00</td>
-            <td>Local Talks 1 to 3 (60 min, 3 x 20 min)</td>
+            <td class="time-col">11:00</td>
+            <td>Local Talks 1–3 (60 min: 3 &times; 20 min)</td>
           </tr>
           <tr>
-            <td class="time">12:00</td>
-            <td>Lunch (45 min) <span class="badge b-break">Break</span></td>
+            <td class="time-col">12:00</td>
+            <td>&#127869; Lunch (45 min) <span class="badge badge-break">Break</span></td>
           </tr>
           <tr>
-            <td class="time">12:45</td>
-            <td>Local Talks 4 to 5 (40 min, 2 x 20 min)</td>
+            <td class="time-col">12:45</td>
+            <td>Local Talks 4–5 (40 min: 2 &times; 20 min)</td>
           </tr>
           <tr>
-            <td class="time">13:25</td>
+            <td class="time-col">13:25</td>
             <td>Transition (10 min)</td>
           </tr>
           <tr>
-            <td class="time">13:35</td>
-            <td>Panel - 5 panelists (45 min) <span class="badge b-panel">Panel</span></td>
+            <td class="time-col">13:35</td>
+            <td>Panel — "Bridging Research and Practice" (45 min, 5 panelists) <span class="badge badge-panel">Panel</span></td>
           </tr>
           <tr>
-            <td class="time">14:20</td>
+            <td class="time-col">14:20</td>
             <td>Closing (15 min)</td>
           </tr>
           <tr>
-            <td class="time">14:35</td>
+            <td class="time-col">14:35</td>
             <td>End</td>
           </tr>
         </tbody>
       </table>
-    </section>
 
-    <section id="tracks">
-      <h2>Tracks</h2>
-      <ul>
-        <li>Robustification and alignment strategies</li>
-        <li>Adversarial learning and resilience</li>
-        <li>Systematic test case generation for autonomous agents</li>
-        <li>Performance metrics beyond accuracy and cost</li>
-        <li>Tools and frameworks for agent testing such as RAGAS</li>
-      </ul>
-    </section>
-
-    <section id="organization">
-      <h2>Organization</h2>
-      <div class="placeholder">
-        Organizing committee details can be added here.
+      <!-- TRACKS -->
+      <h2 id="tracks">Tracks</h2>
+      <div class="track-pills">
+        <a href="#tracks">Robustification &amp; Alignment</a>
+        <a href="#tracks">Adversarial Learning &amp; Resilience</a>
+        <a href="#tracks">Systematic Test Case Generation</a>
+        <a href="#tracks">Performance Metrics &amp; Certification</a>
+        <a href="#tracks">Tools &amp; Frameworks (RAGAS)</a>
       </div>
-    </section>
 
-    <section id="sponsorship">
-      <h2>Sponsorship</h2>
-      <div class="placeholder">
-        Sponsorship information can be added here.
+      <!-- ORGANIZATION -->
+      <h2 id="organization">Organization</h2>
+      <p>Organizing committee details will be announced soon.</p>
+
+      <!-- SPONSORSHIP -->
+      <h2 id="sponsorship">Sponsorship</h2>
+      <p>For sponsorship inquiries, please contact the organizing committee.</p>
+
+    </div>
+
+    <!-- ─── SIDEBAR ─── -->
+    <aside class="sidebar">
+
+      <div class="sidebar-block">
+        <h4>Workshop Tracks</h4>
+        <ul>
+          <li><a href="#tracks">Robustification &amp; Alignment</a></li>
+          <li><a href="#tracks">Adversarial Learning &amp; Resilience</a></li>
+          <li><a href="#tracks">Systematic Test Case Generation</a></li>
+          <li><a href="#tracks">Performance Metrics &amp; Certification</a></li>
+          <li><a href="#tracks">Tools &amp; Frameworks (RAGAS)</a></li>
+        </ul>
       </div>
-    </section>
 
-    <section id="search">
-      <h2>Search</h2>
-      <div class="placeholder">
-        Add conference site search integration here.
+      <div class="sidebar-block">
+        <h4>Attending</h4>
+        <ul>
+          <li><a href="#attending">Venue: IIIT Hyderabad</a></li>
+          <li><a href="#program">Program Schedule</a></li>
+          <li><a href="#keynotes">Keynote Speakers</a></li>
+        </ul>
       </div>
-    </section>
 
-    <section id="series">
-      <h2>Series</h2>
-      <div class="placeholder">
-        Add ISEC series links and edition history here.
+      <div class="sidebar-block">
+        <h4>Latest News</h4>
+        <ul class="news-list">
+          <li>
+            <a href="#home">Workshop page is now live</a>
+            <div class="date">Mar 2026</div>
+          </li>
+          <li>
+            <a href="#home">Call for participation announced</a>
+            <div class="date">Coming soon</div>
+          </li>
+        </ul>
       </div>
-    </section>
-  </main>
 
-  <footer>
-    ISEC Workshop 2026 | Testing and Verification of Agentic AI Systems
+      <div class="sidebar-block">
+        <h4>Supporters</h4>
+        <div class="supporters">
+          <table>
+            <tr><td>Infosys</td><td>Industry Partner</td></tr>
+            <tr><td>IIIT Hyderabad</td><td>Host Institution</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="sidebar-block" id="search-section">
+        <h4>Search</h4>
+        <div style="padding:10px 14px;">
+          <input type="text" placeholder="Search workshop..." style="width:100%;padding:6px 8px;border:1px solid #ccc;border-radius:3px;font-size:13px;" />
+        </div>
+      </div>
+
+      <div class="sidebar-block" id="series">
+        <h4>Series</h4>
+        <ul>
+          <li><a href="https://conf.researchr.org/series/isec" target="_blank" rel="noopener noreferrer">ISEC Conference Series</a></li>
+          <li><a href="https://conf.researchr.org/home/isec-2026" target="_blank" rel="noopener noreferrer">ISEC 2026</a></li>
+        </ul>
+      </div>
+
+    </aside>
+
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="site-footer">
+    <a href="#home">ISEC Workshop 2026</a> &nbsp;|&nbsp;
+    Sat 20 June 2026 &nbsp;|&nbsp;
+    <a href="#attending">IIIT Hyderabad, India</a> &nbsp;|&nbsp;
+    Powered by <a href="https://conf.researchr.org/" target="_blank" rel="noopener noreferrer">conf.researchr.org</a>
   </footer>
+
 </body>
 </html>
