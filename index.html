@@ -121,13 +121,27 @@
     .main-content ul, .main-content ol { margin: 6px 0 14px 28px; }
     .main-content li { margin: 5px 0; }
 
+    /* VENUE IMAGES */
     .venue-img {
       width: 100%;
-      max-height: 280px;
+      max-height: 320px;
       object-fit: cover;
       border-radius: 4px;
       border: 1px solid #ddd;
       margin: 12px 0;
+    }
+    .venue-gallery {
+      display: flex;
+      gap: 12px;
+      margin: 12px 0;
+    }
+    .venue-gallery img {
+      flex: 1;
+      min-width: 0;
+      max-height: 220px;
+      object-fit: cover;
+      border-radius: 4px;
+      border: 1px solid #ddd;
     }
 
     /* SPEAKER GRID */
@@ -247,7 +261,11 @@
     }
     .sidebar-block li a:hover { background: #e8f0fe; text-decoration: none; }
     .sidebar-block li:last-child a { border-bottom: none; }
-    .sidebar-block .box-body { padding: 10px 14px; font-size: 12px; color: #777; }
+    .sidebar-block .box-body {
+      padding: 10px 14px;
+      font-size: 12px;
+      color: #777;
+    }
     .sidebar-block .box-body table { width: 100%; border-collapse: collapse; }
     .sidebar-block .box-body td { padding: 4px 0; border: none; font-size: 12px; }
 
@@ -268,6 +286,7 @@
       .sidebar { width: 100%; }
       .navbar-inner { flex-direction: column; align-items: flex-start; }
       .speaker-card { width: 140px; }
+      .venue-gallery { flex-direction: column; }
     }
   </style>
 </head>
@@ -291,7 +310,7 @@
       <a href="#tracks">Tracks</a>
       <a href="#organization">Organization</a>
       <a href="#sponsorship">Sponsorship</a>
-      <a href="#search-section">&#128269;</a>
+      <a href="#search-section">Search</a>
       <span class="spacer"></span>
       <span class="right-links">
         <a href="#signin">Sign in</a>
@@ -327,10 +346,11 @@
         in safety-critical and mission-critical systems.
       </p>
 
+      <!-- Main gate image -->
       <img
         class="venue-img"
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/IIITH_Boys_Hostel.jpg/1280px-IIITH_Boys_Hostel.jpg"
-        alt="IIIT Hyderabad campus"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/International_Institute_Of_Information_Technology_Hyderabad.jpg/1280px-International_Institute_Of_Information_Technology_Hyderabad.jpg"
+        alt="IIIT Hyderabad main gate entrance"
         loading="lazy"
       />
 
@@ -427,7 +447,7 @@
         <li>The software engineering community needs proven frameworks before deployment outpaces governance.</li>
       </ul>
 
-      <!-- ATTENDING -->
+      <!-- ATTENDING / VENUE -->
       <h2 id="attending">Attending</h2>
       <h3>Venue: IIIT Hyderabad</h3>
       <p>
@@ -437,14 +457,22 @@
           View on Google Maps
         </a>
       </p>
-      <img
-        class="venue-img"
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/IIITH_Boys_Hostel.jpg/1280px-IIITH_Boys_Hostel.jpg"
-        alt="IIIT Hyderabad campus view"
-        loading="lazy"
-      />
 
-      <!-- PROGRAM -->
+      <!-- Two campus images side by side -->
+      <div class="venue-gallery">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/International_Institute_Of_Information_Technology_Hyderabad.jpg/960px-International_Institute_Of_Information_Technology_Hyderabad.jpg"
+          alt="IIIT Hyderabad main gate"
+          loading="lazy"
+        />
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/IIIT_Hyderabad_Academic_Block_.jpg/960px-IIIT_Hyderabad_Academic_Block_.jpg"
+          alt="IIIT Hyderabad Academic Block"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- PROGRAM / SCHEDULE -->
       <h2 id="program">Program</h2>
       <p><strong>Date:</strong> Saturday, June 20, 2026 | <strong>Duration:</strong> Full day, 09:00 - 14:35</p>
 
