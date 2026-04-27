@@ -1,753 +1,187 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SERI Industry Day Conference 2026 | Testing and Verification of Agentic AI Systems</title>
-
-  <!-- Favicon: researchr-style blue "R" icon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23337ab7'/><text x='50%25' y='74%25' font-size='22' font-weight='bold' fill='white' text-anchor='middle'>R</text></svg>" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SERI Industry Day Workshop 2026 | Testing and Verification of Agentic AI Systems</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      line-height: 1.6;
-      color: #333;
-      background: #fff;
-    }
-
-    a { color: #337ab7; text-decoration: none; }
-    a:hover { color: #23527c; text-decoration: underline; }
-
-    /* ═══ TITLE BANNER IMAGE (full-width, like researchr) ═══ */
-    .title-banner {
-      width: 100%;
-      min-height: 180px;
-      background:
-        linear-gradient(135deg, rgba(10,40,80,0.55) 0%, rgba(30,90,160,0.45) 50%, rgba(20,60,110,0.50) 100%),
-        url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/International_Institute_Of_Information_Technology_Hyderabad.jpg/1280px-International_Institute_Of_Information_Technology_Hyderabad.jpg");
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      padding: 0;
-    }
-    .title-banner-inner {
-      max-width: 1170px;
-      margin: 0 auto;
-      padding: 28px 15px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      width: 100%;
-    }
-    /* Conference "logo" box (like the SERI title image) */
-    .conf-logo {
-      flex-shrink: 0;
-      width: 120px;
-      height: 120px;
-      background: rgba(255,255,255,0.95);
-      border-radius: 6px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-    }
-    .conf-logo .logo-top {
-      font-size: 11px;
-      font-weight: 700;
-      color: #337ab7;
-      letter-spacing: 0.5px;
-    }
-    .conf-logo .logo-main {
-      font-size: 32px;
-      font-weight: 800;
-      color: #1a3f6f;
-      line-height: 1;
-      margin: 2px 0;
-    }
-    .conf-logo .logo-year {
-      font-size: 16px;
-      font-weight: 700;
-      color: #337ab7;
-    }
-    .conf-logo .logo-sub {
-      font-size: 8px;
-      color: #777;
-      text-align: center;
-      line-height: 1.2;
-      margin-top: 2px;
-    }
-    .title-text h1 {
-      color: #fff;
-      font-size: clamp(18px, 2.4vw, 28px);
-      font-weight: 600;
-      margin-bottom: 6px;
-      text-shadow: 0 1px 4px rgba(0,0,0,0.4);
-    }
-    .title-text .subtitle {
-      color: rgba(255,255,255,0.9);
-      font-size: 14px;
-    }
-    .title-text .subtitle a {
-      color: #9dc8f5;
-    }
-
-    /* ═══ TOP INFO BAR (date + venue, like researchr) ═══ */
-    .topbar {
-      background: #222;
-      color: #bbb;
-      font-size: 13px;
-      padding: 0;
-      border-bottom: 1px solid #111;
-    }
-    .topbar-inner {
-      max-width: 1170px;
-      margin: 0 auto;
-      padding: 7px 15px;
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .topbar .conf-name {
-      font-weight: 700;
-      color: #fff;
-    }
-    .topbar a { color: #8cb4d8; }
-    .topbar .sep { color: #555; }
-
-    /* ═══ NAVBAR (dark, researchr-style) ═══ */
-    .navbar {
-      background: #2c2c2c;
-      border-bottom: 3px solid #337ab7;
-    }
-    .navbar-inner {
-      max-width: 1170px;
-      margin: 0 auto;
-      padding: 0 15px;
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .nav-item {
-      position: relative;
-      display: inline-block;
-    }
-    .nav-item > a {
-      display: inline-block;
-      color: #ddd;
-      padding: 11px 14px;
-      font-size: 14px;
-      font-weight: 500;
-    }
-    .nav-item > a:hover,
-    .nav-item > a.active {
-      background: #444;
-      color: #fff;
-      text-decoration: none;
-    }
-    /* Dropdown */
-    .nav-item .dropdown {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 0 0 4px 4px;
-      min-width: 220px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      z-index: 100;
-    }
-    .nav-item:hover .dropdown { display: block; }
-    .nav-item .dropdown a {
-      display: block;
-      padding: 8px 14px;
-      font-size: 13px;
-      color: #337ab7;
-      border-bottom: 1px solid #f0f0f0;
-    }
-    .nav-item .dropdown a:hover {
-      background: #f5f8ff;
-      text-decoration: none;
-    }
-
-    .navbar .spacer { flex-grow: 1; }
-    .navbar .right-links a {
-      display: inline-block;
-      font-size: 12px;
-      color: #999;
-      padding: 11px 10px;
-    }
-    .navbar .right-links a:hover { color: #fff; text-decoration: none; }
-    .navbar .search-icon {
-      color: #999;
-      padding: 11px 10px;
-      cursor: pointer;
-    }
-    .navbar .search-icon:hover { color: #fff; }
-
-    /* ═══ BREADCRUMB ═══ */
-    .breadcrumb-bar {
-      background: #f8f8f8;
-      border-bottom: 1px solid #ddd;
-      padding: 8px 0;
-      font-size: 13px;
-      color: #777;
-    }
-    .breadcrumb-inner {
-      max-width: 1170px;
-      margin: 0 auto;
-      padding: 0 15px;
-    }
-
-    /* ═══ PAGE LAYOUT ═══ */
-    .page-layout {
-      max-width: 1170px;
-      margin: 0 auto;
-      padding: 20px 15px 40px;
-      display: flex;
-      gap: 30px;
-    }
-    .main-content { flex: 1; min-width: 0; }
-    .sidebar { width: 300px; flex-shrink: 0; }
-
-    /* ═══ CONTENT ═══ */
-    .main-content h1 {
-      font-size: 26px;
-      font-weight: 500;
-      margin-bottom: 14px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #eee;
-    }
-    .main-content h2 {
-      font-size: 20px;
-      font-weight: 500;
-      margin: 26px 0 10px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid #eee;
-    }
-    .main-content h3 {
-      font-size: 16px;
-      font-weight: 600;
-      margin: 18px 0 8px;
-    }
-    .main-content p { margin: 0 0 12px; }
-    .main-content ul, .main-content ol { margin: 6px 0 14px 28px; }
-    .main-content li { margin: 5px 0; }
-
-    .venue-img {
-      width: 100%;
-      max-height: 260px;
-      object-fit: cover;
-      border-radius: 4px;
-      border: 1px solid #ddd;
-      margin: 10px 0;
-    }
-    .venue-gallery {
-      display: flex;
-      gap: 12px;
-      margin: 12px 0;
-    }
-    .venue-gallery img {
-      flex: 1;
-      min-width: 0;
-      max-height: 200px;
-      object-fit: cover;
-      border-radius: 4px;
-      border: 1px solid #ddd;
-    }
-
-    /* Speaker grid */
-    .speaker-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin: 14px 0;
-    }
-    .speaker-card {
-      width: 155px;
-      text-align: center;
-      background: #fafafa;
-      border: 1px solid #eee;
-      border-radius: 4px;
-      padding: 14px 6px;
-    }
-    .speaker-card .avatar {
-      width: 68px;
-      height: 68px;
-      border-radius: 50%;
-      background: #d9e3f0;
-      margin: 0 auto 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #6a8bb5;
-      font-size: 22px;
-      font-weight: 700;
-    }
-    .speaker-card .name { font-weight: 600; font-size: 12px; }
-    .speaker-card .role { font-size: 11px; color: #777; margin-top: 3px; }
-
-    /* Schedule table */
-    .schedule-table { width: 100%; border-collapse: collapse; margin: 12px 0; }
-    .schedule-table th, .schedule-table td {
-      border: 1px solid #ddd;
-      padding: 8px 10px;
-      font-size: 13px;
-      text-align: left;
-      vertical-align: top;
-    }
-    .schedule-table th { background: #f5f5f5; font-weight: 600; }
-    .schedule-table .time-col { width: 100px; font-weight: 700; white-space: nowrap; }
-    .badge {
-      display: inline-block;
-      padding: 2px 7px;
-      border-radius: 3px;
-      font-size: 11px;
-      font-weight: 700;
-      margin-left: 6px;
-    }
-    .badge-keynote { background: #d9edf7; color: #31708f; }
-    .badge-break { background: #fcf8e3; color: #8a6d3b; }
-    .badge-panel { background: #dff0d8; color: #3c763d; }
-
-    /* Track pills */
-    .track-pills { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
-    .track-pills a {
-      display: inline-block;
-      padding: 5px 10px;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-      font-size: 12px;
-      color: #555;
-      background: #fafafa;
-    }
-    .track-pills a:hover {
-      background: #337ab7;
-      color: #fff;
-      border-color: #337ab7;
-      text-decoration: none;
-    }
-
-    /* ═══ SIDEBAR ═══ */
-    .sidebar-block {
-      background: #f7f7f7;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      margin-bottom: 16px;
-      overflow: hidden;
-    }
-    .sidebar-block h4 {
-      margin: 0;
-      padding: 10px 14px;
-      font-size: 13px;
-      font-weight: 700;
-      background: #eee;
-      border-bottom: 1px solid #ddd;
-      color: #333;
-    }
-    .sidebar-block ul { list-style: none; margin: 0; padding: 0; }
-    .sidebar-block li a {
-      display: block;
-      padding: 7px 14px;
-      font-size: 13px;
-      border-bottom: 1px solid #eee;
-      color: #337ab7;
-    }
-    .sidebar-block li a:hover { background: #e8f0fe; text-decoration: none; }
-    .sidebar-block li:last-child a { border-bottom: none; }
-    .sidebar-block .box-body {
-      padding: 10px 14px;
-      font-size: 12px;
-      color: #777;
-    }
-    .sidebar-block .box-body table { width: 100%; border-collapse: collapse; }
-    .sidebar-block .box-body td { padding: 4px 0; border: none; font-size: 12px; }
-
-    /* ═══ FOOTER ═══ */
-    .site-footer {
-      background: #2c2c2c;
-      color: #888;
-      font-size: 12px;
-      padding: 14px 0;
-      text-align: center;
-      border-top: 3px solid #337ab7;
-    }
-    .site-footer a { color: #8cb4d8; }
-
-    /* ═══ RESPONSIVE ═══ */
-    @media (max-width: 860px) {
-      .page-layout { flex-direction: column; }
-      .sidebar { width: 100%; }
-      .navbar-inner { flex-direction: column; align-items: flex-start; }
-      .speaker-card { width: 130px; }
-      .venue-gallery { flex-direction: column; }
-      .title-banner-inner { flex-direction: column; text-align: center; }
-      .conf-logo { width: 90px; height: 90px; }
-      .conf-logo .logo-main { font-size: 24px; }
-    }
+    body { font-family: Arial, sans-serif; background-color: #f7f7f7; color: #333; line-height: 1.6; margin: 0; padding: 0; }
+    header, footer { background: #002b5c; color: white; padding: 1em 0; text-align: center; }
+    main { max-width: 900px; margin: 2em auto; background: white; padding: 2em; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    h1, h2, h3 { color: #002b5c; }
+    table { width: 100%; border-collapse: collapse; margin: 1em 0; }
+    table th, table td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    table th { background-color: #f0f0f0; }
+    .badge { background-color: #002b5c; color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.8em; }
+    a { color: #0056b3; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ol, ul { margin-left: 1.5em; }
   </style>
 </head>
 <body>
 
-  <!-- ═══ TITLE BANNER (conference image + logo, like researchr) ═══ -->
-  <div class="title-banner">
-    <div class="title-banner-inner">
-      <div class="conf-logo">
-        <span class="logo-top">Infosys & IIIT</span>
-        <span class="logo-main">SERI</span>
-        <span class="logo-year">2026</span>
-        <span class="logo-sub">Industry Day</span>
-      </div>
-      <div class="title-text">
-        <h1>Testing and Verification of Agentic AI Systems</h1>
-        <div class="subtitle">
-          SERI Industry Day Conference 2026 | Sat 18 July 2026 |
-          <a href="#attending">IIIT Hyderabad, Telangana, India</a>
-        </div>
-      </div>
-    </div>
-  </div>
+<header>
+  <h1>SERI Industry Day Workshop 2026</h1>
+  <p>Testing and Verification of Agentic AI Systems | Sat 18 July 2026 | IIIT Hyderabad, Telangana, India</p>
+  <p><a href="#attending" style="color:white;">Venue: IIIT Hyderabad</a> | <a href="#program" style="color:white;">Program</a> | <a href="#tracks" style="color:white;">Tracks</a> | <a href="#objectives" style="color:white;">Objectives</a></p>
+</header>
 
-  <!-- ═══ TOP INFO BAR ═══ -->
-  <div class="topbar">
-    <div class="topbar-inner">
-      <span class="conf-name">SERI Industry Day Conference 2026</span>
-      <span class="sep">|</span>
-      <span>Sat 18 July 2026</span>
-      <span class="sep">|</span>
-      <a href="#attending">IIIT Hyderabad, India</a>
-    </div>
-  </div>
+<main>
 
-  <!-- ═══ NAVBAR (with dropdowns like researchr) ═══ -->
-  <nav class="navbar">
-    <div class="navbar-inner">
+  <section id="welcome">
+    <h1>Welcome to SERI Industry Day Workshop 2026</h1>
+    <p>
+      Welcome to <strong>SERI (Software Engineering Research and Innovation) Industry Day Workshop 2026</strong>,
+      co-hosted by <strong>Infosys</strong> and <strong>IIIT Hyderabad</strong>.
+    </p>
+    <p>
+      This full-day <strong>workshop</strong> bridges the gap between cutting-edge academic research and industry practice,
+      bringing together researchers, practitioners, and industry leaders to collaborate on one of the most critical
+      challenges in modern software engineering.
+    </p>
+    <p>
+      The workshop focuses on <strong>Testing and Verification of Agentic AI Systems</strong> — a pressing need as autonomous AI agents transition from research prototypes to production deployments in safety-critical and mission-critical applications.
+    </p>
+    <p>
+      Join us on <strong>Saturday, July 18, 2026</strong> at <strong>IIIT Hyderabad</strong> for a day of keynote presentations,
+      invited talks, and in-depth panel discussions featuring 2 keynote speakers, 5 invited speakers, and 10 industry and academic panelists.
+    </p>
+  </section>
 
-      <div class="nav-item">
-        <a href="#home" class="active">Home</a>
-      </div>
+  <section id="objectives">
+    <h2>Objectives</h2>
+    <ol>
+      <li><strong>Bridge Academia-Industry Gap:</strong> Foster collaboration between academic researchers and industry practitioners working on AI system verification.</li>
+      <li><strong>Share Best Practices:</strong> Learn production-grade testing methodologies and lessons learned from deploying agentic AI at enterprise scale.</li>
+      <li><strong>Explore Research Frontiers:</strong> Gain insight into the verification landscape and current research directions in agentic AI system testing.</li>
+      <li><strong>Understand Robustification Techniques:</strong> Learn robustification and alignment approaches for dependable behavior under perturbation and deployment drift.</li>
+      <li><strong>Discuss Adversarial Methods:</strong> Explore adversarial testing methods, defense mechanisms, and resilience measurement for autonomous agents.</li>
+      <li><strong>Learn Test Suite Design Principles:</strong> Understand systematic approaches to test suite design for meaningful coverage of agent behavior spaces in production environments.</li>
+      <li><strong>Explore Advanced Metrics:</strong> Learn about advanced metrics beyond accuracy — including PAC-based certification, harmonic mean metrics, and multi-dimensional performance measurement.</li>
+      <li><strong>Discover Tools and Frameworks:</strong> Gain awareness of tools like RAGAS, LangSmith, and Guardrails AI for agent evaluation through expert presentations.</li>
+      <li><strong>Build Professional Networks:</strong> Strengthen professional networks connecting academia, industry, and research communities for sustained collaboration.</li>
+    </ol>
+  </section>
 
-      <div class="nav-item">
-        <a href="#attending">Attending</a>
-        <div class="dropdown">
-          <a href="#attending">Venue: IIIT Hyderabad</a>
-          <a href="#home">Keynote Speakers</a>
-        </div>
-      </div>
+  <section id="abstract">
+    <h2>Abstract</h2>
+    <p>
+      Autonomous AI agents are increasingly embedded in safety-critical and mission-critical software systems —
+      from healthcare decision support and financial trading to industrial automation and intelligent assistants.
+      Unlike conventional software, these agentic systems exhibit non-deterministic behavior, emergent properties,
+      and complex environmental interactions, making traditional testing and verification approaches inadequate.
+      The rapid transition from research labs to production deployments has created a critical gap in testing methodologies and best practices.
+    </p>
+    <p>
+      This full-day <strong>industry-academia workshop</strong> addresses the urgent need for rigorous, systematic methodologies to test and verify
+      agentic AI systems at enterprise scale. The workshop brings academic researchers and industry practitioners together to share insights,
+      discuss practical challenges, and collaborate on solutions covering:
+    </p>
+    <ul>
+      <li><strong>Production-Grade Testing:</strong> Real-world deployment challenges and testing strategies from industry leaders like Infosys</li>
+      <li><strong>Robustification and Alignment:</strong> Ensuring agent behavior remains aligned with human intent under distribution shift and drift</li>
+      <li><strong>Adversarial Learning and Resilience:</strong> Building defense mechanisms and measuring resilience of agentic systems</li>
+      <li><strong>Systematic Test Case Generation:</strong> Creating comprehensive test suites for autonomous agents</li>
+      <li><strong>Advanced Performance Metrics:</strong> Moving beyond accuracy to include cost, latency, safety, and compliance metrics</li>
+      <li><strong>Tools and Frameworks:</strong> Expert presentations on RAGAS, LangSmith, and Guardrails AI for enterprise deployment</li>
+    </ul>
+  </section>
 
-      <div class="nav-item">
-        <a href="#program">Program</a>
-      </div>
+  <section id="motivation">
+    <h2>Motivation</h2>
+    <h3>Why Traditional Testing Fails for Agents</h3>
+    <ul>
+      <li><strong>Non-determinism:</strong> Agent outputs vary across runs due to stochastic components, environment dynamics, and LLM sampling — making regression testing unreliable.</li>
+      <li><strong>Emergent Behavior:</strong> Complex outcomes arise from agent-environment interactions that cannot be predicted from component-level tests alone.</li>
+      <li><strong>Safety-Critical Autonomy:</strong> Agents make autonomous decisions with real-world consequences, requiring rigorous verification before deployment.</li>
+      <li><strong>Alignment Drift:</strong> Goals and behaviors may diverge from human intent over time as agents adapt to new environments and scenarios.</li>
+      <li><strong>Exponential State Spaces:</strong> Testing burden grows combinatorially with environment complexity, making exhaustive testing infeasible.</li>
+      <li><strong>Regulatory Compliance:</strong> Increasing regulations (EU AI Act, NIST AI RMF) require demonstrable verification and compliance evidence.</li>
+    </ul>
 
-      <div class="nav-item">
-        <a href="#tracks">Tracks</a>
-        <div class="dropdown">
-          <a href="#tracks">Robustification and Alignment</a>
-          <a href="#tracks">Adversarial Learning and Resilience</a>
-          <a href="#tracks">Systematic Test Case Generation</a>
-          <a href="#tracks">Performance Metrics</a>
-          <a href="#tracks">Tools and Frameworks (RAGAS)</a>
-        </div>
-      </div>
+    <h3>Why Now: Industry Urgency</h3>
+    <ul>
+      <li><strong>Production Deployments at Scale:</strong> LLM-based agents (AutoGPT, CrewAI, LangGraph) are entering production systems at enterprise scale.</li>
+      <li><strong>Regulatory Pressure:</strong> Regulatory frameworks are emerging globally, requiring organizations to demonstrate robust testing and verification practices.</li>
+      <li><strong>Safety and Trust Concerns:</strong> High-profile AI failures and incidents underscore the critical need for rigorous verification before deployment.</li>
+      <li><strong>Industry Leadership:</strong> Forward-thinking organizations like Infosys are investing in production-grade testing methodologies and sharing their experience.</li>
+      <li><strong>Community Need:</strong> The software engineering community needs proven frameworks, tools, and best practices before deployment outpaces governance.</li>
+    </ul>
+  </section>
 
-      <div class="nav-item">
-        <a href="#organization">Organization</a>
-      </div>
+  <section id="attending">
+    <h2>Venue: IIIT Hyderabad</h2>
+    <p>
+      International Institute of Information Technology, Hyderabad<br>
+      Gachibowli, Hyderabad, Telangana 500 032, India<br>
+      <a href="[google.com](https://www.google.com/maps/search/?api=1&query=IIIT+Hyderabad)" target="_blank">View on Google Maps</a>
+    </p>
+  </section>
 
-      <div class="nav-item">
-        <a href="#sponsorship">Sponsorship</a>
-      </div>
+  <section id="program">
+    <h2>Program</h2>
+    <p><strong>Date:</strong> Saturday, July 18, 2026 | <strong>Duration:</strong> Full day, 09:00 - 14:35</p>
+    <table>
+      <tr><th>Time</th><th>Session</th></tr>
+      <tr><td>09:00</td><td>Opening Remarks &amp; Welcome (15 min)</td></tr>
+      <tr><td>09:15</td><td>Keynote 1 – International Speaker (45 min) <span class="badge">Keynote</span></td></tr>
+      <tr><td>10:00</td><td>Tea Break (15 min) <span class="badge">Break</span></td></tr>
+      <tr><td>10:15</td><td>Keynote 2 – India Industry Leader (45 min) <span class="badge">Keynote</span></td></tr>
+      <tr><td>11:00</td><td>Invited Talks 1–3 (60 min: 3 × 20 min)</td></tr>
+      <tr><td>12:00</td><td>Lunch Break (45 min) <span class="badge">Break</span></td></tr>
+      <tr><td>12:45</td><td>Invited Talks 4–5 (40 min: 2 × 20 min)</td></tr>
+      <tr><td>13:25</td><td>Transition &amp; Discussion (10 min)</td></tr>
+      <tr><td>13:35</td><td>Panel 1 – "Industry Challenges in Agentic AI Testing" (25 min, 5 panelists) <span class="badge">Panel</span></td></tr>
+      <tr><td>14:00</td><td>Panel 2 – "Future of AI Verification Research and Practice" (20 min, 5 panelists) <span class="badge">Panel</span></td></tr>
+      <tr><td>14:20</td><td>Closing Remarks &amp; Networking (15 min)</td></tr>
+      <tr><td>14:35</td><td>End</td></tr>
+    </table>
+  </section>
 
-      <span class="search-icon" title="Search">&#x1F50D;</span>
+  <section id="tracks">
+    <h2>Tracks &amp; Topics</h2>
+    <ul>
+      <li>Robustification and Alignment</li>
+      <li>Adversarial Learning and Resilience</li>
+      <li>Systematic Test Case Generation</li>
+      <li>Performance Metrics and Certification</li>
+      <li>Tools and Frameworks (RAGAS)</li>
+    </ul>
+  </section>
 
-      <span class="spacer"></span>
+  <section id="organization">
+    <h2>Organization</h2>
+    <p><strong>Co-hosts:</strong> Infosys &amp; IIIT Hyderabad</p>
+    <p><strong>Organizing Committee:</strong> Details will be announced soon.</p>
+    <p><strong>Contact:</strong> For inquiries, please reach out to the organizing committee.</p>
+  </section>
 
-      <span class="right-links">
-        <a href="#signin">Sign in</a>
-        <a href="#signup">Sign up</a>
-      </span>
-    </div>
-  </nav>
+  <section id="sponsorship">
+    <h2>Sponsorship</h2>
+    <p>This workshop is co-hosted by <strong>Infosys</strong> and <strong>IIIT Hyderabad</strong>. For additional sponsorship opportunities, please contact the organizing committee.</p>
+    <ul>
+      <li>Robustification and Alignment</li>
+      <li>Adversarial Learning and Resilience</li>
+      <li>Systematic Test Case Generation</li>
+      <li>Performance Metrics and Certification</li>
+      <li>Tools and Frameworks (RAGAS)</li>
+    </ul>
+    <table>
+      <tr><th>Co-host</th><th>Role</th></tr>
+      <tr><td><strong>Infosys</strong></td><td>Industry Co-host</td></tr>
+      <tr><td><strong>IIIT Hyderabad</strong></td><td>Academic Co-host</td></tr>
+    </table>
+    <p>
+      <a href="[conf.researchr.org](https://conf.researchr.org/home/seri-2026)">SERI 2026 Conference Series</a> |
+      <a href="[conf.researchr.org](https://conf.researchr.org/)">ResearchR Conferences</a>
+    </p>
+  </section>
 
-  <!-- ═══ BREADCRUMB ═══ -->
-  <div class="breadcrumb-bar">
-    <div class="breadcrumb-inner">
-      <a href="#home">SERI Industry Day Conference 2026</a> (<a href="https://conf.researchr.org/home/seri-2026" target="_blank" rel="noopener noreferrer">series</a>) / Home
-    </div>
-  </div>
+</main>
 
-  <!-- ═══ PAGE LAYOUT ═══ -->
-  <div class="page-layout">
-
-    <!-- MAIN CONTENT -->
-    <div class="main-content" id="home">
-
-      <h1>Welcome to SERI Industry Day Conference 2026</h1>
-
-      <p>
-        Welcome to <strong>SERI (Software Engineering Research and Innovation) Industry Day Conference 2026</strong>,
-        co-hosted by <strong>Infosys</strong> and <strong>IIIT Hyderabad</strong>.
-        This full-day conference bridges the gap between cutting-edge academic research and industry practice,
-        bringing together researchers, practitioners, and industry leaders to collaborate on one of the most critical
-        challenges in modern software engineering.
-      </p>
-      <p>
-        The conference focuses on <strong>Testing and Verification of Agentic AI Systems</strong> - a pressing need as 
-        autonomous AI agents transition from research prototypes to production deployments in safety-critical and mission-critical applications.
-        Join us on <strong>Saturday, July 18, 2026</strong> at <strong>IIIT Hyderabad</strong> for a day of keynote presentations,
-        technical talks, and in-depth panel discussions featuring 2 keynote speakers, 5 invited speakers, and 10 industry and academic panelists.
-      </p>
-
-      <!-- OBJECTIVES -->
-      <h2 id="objectives">Objectives</h2>
-      <ol>
-        <li><strong>Bridge Academia-Industry Gap:</strong> Foster collaboration between academic researchers and industry practitioners working on AI system verification.</li>
-        <li><strong>Share Best Practices:</strong> Understand production-grade testing methodologies and lessons learned from deploying agentic AI at enterprise scale.</li>
-        <li><strong>Explore Research Frontiers:</strong> Understand the verification landscape and current research frontiers in agentic AI system testing.</li>
-        <li><strong>Learn Robustification Techniques:</strong> Master robustification and alignment approaches for dependable behavior under perturbation and deployment drift.</li>
-        <li><strong>Apply Adversarial Methods:</strong> Apply adversarial testing methods, defense mechanisms, and resilience measurement for autonomous agents.</li>
-        <li><strong>Design Test Suites:</strong> Design systematic test suites for meaningful coverage of agent behavior spaces in production environments.</li>
-        <li><strong>Implement Advanced Metrics:</strong> Implement advanced metrics beyond accuracy - including PAC-based certification, harmonic mean metrics, and multi-dimensional performance measurement.</li>
-        <li><strong>Hands-On Tools Experience:</strong> Gain hands-on familiarity with tools like RAGAS, LangSmith, and Guardrails AI for agent evaluation.</li>
-        <li><strong>Build Professional Networks:</strong> Strengthen professional networks connecting academia, industry, and research communities for sustained collaboration.</li>
-      </ol>
-
-      <!-- KEYNOTE SPEAKERS -->
-      <h3>Keynote Speakers</h3>
-      <div class="speaker-grid">
-        <div class="speaker-card">
-          <div class="avatar">K1</div>
-          <div class="name">International Keynote</div>
-          <div class="role">Remote, 45 min<br/>Verification Strategies for Autonomous Agents</div>
-        </div>
-        <div class="speaker-card">
-          <div class="avatar">K2</div>
-          <div class="name">India Industry Speaker</div>
-          <div class="role">In-person, 45 min<br/>Robustification and Alignment in Production</div>
-        </div>
-      </div>
-
-      <h3>Invited Speakers (5 Speakers)</h3>
-      <div class="speaker-grid">
-        <div class="speaker-card">
-          <div class="avatar">S1</div>
-          <div class="name">Speaker 1</div>
-          <div class="role">Test Case Generation for LLM Agents</div>
-        </div>
-        <div class="speaker-card">
-          <div class="avatar">S2</div>
-          <div class="name">Speaker 2</div>
-          <div class="role">Adversarial Learning and Resilience</div>
-        </div>
-        <div class="speaker-card">
-          <div class="avatar">S3</div>
-          <div class="name">Speaker 3</div>
-          <div class="role">PAC-based Certification Metrics</div>
-        </div>
-        <div class="speaker-card">
-          <div class="avatar">S4</div>
-          <div class="name">Speaker 4</div>
-          <div class="role">RAGAS and Evaluation Frameworks</div>
-        </div>
-        <div class="speaker-card">
-          <div class="avatar">S5</div>
-          <div class="name">Speaker 5</div>
-          <div class="role">Testing Agents at Scale (Infosys)</div>
-        </div>
-      </div>
-
-      <!-- ABSTRACT -->
-      <h2 id="abstract">Abstract</h2>
-      <p>
-        Autonomous AI agents are increasingly embedded in safety-critical and mission-critical software systems -
-        from healthcare decision support and financial trading to industrial automation and intelligent assistants.
-        Unlike conventional software, these agentic systems exhibit non-deterministic behavior, emergent properties,
-        and complex environmental interactions, making traditional testing and verification approaches inadequate.
-        The rapid transition from research labs to production deployments has created a critical gap in testing methodologies and best practices.
-      </p>
-      <p>
-        This full-day industry-academia conference addresses the urgent need for rigorous, systematic methodologies to test and verify
-        agentic AI systems at enterprise scale. The conference brings academic researchers and industry practitioners together to share insights,
-        discuss practical challenges, and collaborate on solutions covering:
-      </p>
-      <ul>
-        <li><strong>Production-Grade Testing:</strong> Real-world deployment challenges and testing strategies from industry leaders like Infosys</li>
-        <li><strong>Robustification and Alignment:</strong> Ensuring agent behavior remains aligned with human intent under distribution shift and drift</li>
-        <li><strong>Adversarial Learning and Resilience:</strong> Building defense mechanisms and measuring resilience of agentic systems</li>
-        <li><strong>Systematic Test Case Generation:</strong> Creating comprehensive test suites for autonomous agents</li>
-        <li><strong>Advanced Performance Metrics:</strong> Moving beyond accuracy to include cost, latency, safety, and compliance metrics</li>
-        <li><strong>Tools and Frameworks:</strong> Practical tools like RAGAS, LangSmith, and Guardrails AI for enterprise deployment</li>
-      </ul>
-
-      <!-- MOTIVATION -->
-      <h2 id="motivation">Motivation</h2>
-      <p>
-        The rapid deployment of agentic AI systems in industry has significantly outpaced the development of adequate testing and
-        verification methodologies. This gap creates significant risks for enterprises deploying these systems in production:
-      </p>
-      <h3>Why Traditional Testing Fails for Agents</h3>
-      <ul>
-        <li><strong>Non-determinism:</strong> Agent outputs vary across runs due to stochastic components, environment dynamics, and LLM sampling - making regression testing unreliable.</li>
-        <li><strong>Emergent Behavior:</strong> Complex outcomes arise from agent-environment interactions that cannot be predicted from component-level tests alone.</li>
-        <li><strong>Safety-Critical Autonomy:</strong> Agents make autonomous decisions with real-world consequences, requiring rigorous verification before deployment.</li>
-        <li><strong>Alignment Drift:</strong> Goals and behaviors may diverge from human intent over time as agents adapt to new environments and scenarios.</li>
-        <li><strong>Exponential State Spaces:</strong> Testing burden grows combinatorially with environment complexity, making exhaustive testing infeasible.</li>
-        <li><strong>Regulatory Compliance:</strong> Increasing regulations (EU AI Act, NIST AI RMF) require demonstrable verification and compliance evidence.</li>
-      </ul>
-      <h3>Why Now: Industry Urgency</h3>
-      <ul>
-        <li><strong>Production Deployments at Scale:</strong> LLM-based agents (AutoGPT, CrewAI, LangGraph) are entering production systems at enterprise scale.</li>
-        <li><strong>Regulatory Pressure:</strong> Regulatory frameworks are emerging globally, requiring organizations to demonstrate robust testing and verification practices.</li>
-        <li><strong>Safety and Trust Concerns:</strong> High-profile AI failures and incidents underscore the critical need for rigorous verification before deployment.</li>
-        <li><strong>Industry Leadership:</strong> Forward-thinking organizations like Infosys are investing in production-grade testing methodologies and sharing their experience.</li>
-        <li><strong>Community Need:</strong> The software engineering community needs proven frameworks, tools, and best practices before deployment outpaces governance.</li>
-      </ul>
-
-      <!-- ATTENDING -->
-      <h2 id="attending">Attending</h2>
-      <h3>Venue: IIIT Hyderabad</h3>
-      <p>
-        International Institute of Information Technology, Hyderabad<br/>
-        Gachibowli, Hyderabad, Telangana 500 032, India<br/>
-        <a href="https://www.google.com/maps/search/?api=1&amp;query=IIIT+Hyderabad" target="_blank" rel="noopener noreferrer">View on Google Maps</a>
-      </p>
-      <div class="venue-gallery">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/International_Institute_Of_Information_Technology_Hyderabad.jpg/960px-International_Institute_Of_Information_Technology_Hyderabad.jpg"
-          alt="IIIT Hyderabad main gate"
-          loading="lazy"
-        />
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/IIIT_Hyderabad_Academic_Block_.jpg/960px-IIIT_Hyderabad_Academic_Block_.jpg"
-          alt="IIIT Hyderabad Academic Block"
-          loading="lazy"
-        />
-      </div>
-
-      <!-- PROGRAM -->
-      <h2 id="program">Program</h2>
-      <p><strong>Date:</strong> Saturday, July 18, 2026 | <strong>Duration:</strong> Full day, 09:00 - 14:35</p>
-      <table class="schedule-table">
-        <thead>
-          <tr><th>Time</th><th>Session</th></tr>
-        </thead>
-        <tbody>
-          <tr><td class="time-col">09:00</td><td>Opening Remarks & Welcome (15 min)</td></tr>
-          <tr><td class="time-col">09:15</td><td>Keynote 1 - International Speaker (45 min) <span class="badge badge-keynote">Keynote</span></td></tr>
-          <tr><td class="time-col">10:00</td><td>Tea Break (15 min) <span class="badge badge-break">Break</span></td></tr>
-          <tr><td class="time-col">10:15</td><td>Keynote 2 - India Industry Leader (45 min) <span class="badge badge-keynote">Keynote</span></td></tr>
-          <tr><td class="time-col">11:00</td><td>Invited Talks 1-3 (60 min: 3 x 20 min)</td></tr>
-          <tr><td class="time-col">12:00</td><td>Lunch Break (45 min) <span class="badge badge-break">Break</span></td></tr>
-          <tr><td class="time-col">12:45</td><td>Invited Talks 4-5 (40 min: 2 x 20 min)</td></tr>
-          <tr><td class="time-col">13:25</td><td>Transition & Discussion (10 min)</td></tr>
-          <tr><td class="time-col">13:35</td><td>Panel 1 - "Industry Challenges in Agentic AI Testing" (25 min, 5 panelists) <span class="badge badge-panel">Panel</span></td></tr>
-          <tr><td class="time-col">14:00</td><td>Panel 2 - "Future of AI Verification Research and Practice" (20 min, 5 panelists) <span class="badge badge-panel">Panel</span></td></tr>
-          <tr><td class="time-col">14:20</td><td>Closing Remarks & Networking (15 min)</td></tr>
-          <tr><td class="time-col">14:35</td><td>End</td></tr>
-        </tbody>
-      </table>
-
-      <!-- TRACKS -->
-      <h2 id="tracks">Tracks & Topics</h2>
-      <div class="track-pills">
-        <a href="#tracks">Robustification and Alignment</a>
-        <a href="#tracks">Adversarial Learning and Resilience</a>
-        <a href="#tracks">Systematic Test Case Generation</a>
-        <a href="#tracks">Performance Metrics and Certification</a>
-        <a href="#tracks">Tools and Frameworks (RAGAS)</a>
-      </div>
-
-      <!-- ORGANIZATION -->
-      <h2 id="organization">Organization</h2>
-      <p>
-        <strong>Co-hosts:</strong> Infosys & IIIT Hyderabad<br/>
-        <strong>Organizing Committee:</strong> Details will be announced soon.<br/>
-        <strong>Contact:</strong> For inquiries, please reach out to the organizing committee.
-      </p>
-
-      <!-- SPONSORSHIP -->
-      <h2 id="sponsorship">Sponsorship</h2>
-      <p>
-        This conference is co-hosted by <strong>Infosys</strong> and <strong>IIIT Hyderabad</strong>. 
-        For additional sponsorship opportunities, please contact the organizing committee.
-      </p>
-
-    </div>
-
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-
-      <div class="sidebar-block">
-        <h4>Conference Topics</h4>
-        <ul>
-          <li><a href="#tracks">Robustification and Alignment</a></li>
-          <li><a href="#tracks">Adversarial Learning and Resilience</a></li>
-          <li><a href="#tracks">Systematic Test Case Generation</a></li>
-          <li><a href="#tracks">Performance Metrics and Certification</a></li>
-          <li><a href="#tracks">Tools and Frameworks (RAGAS)</a></li>
-        </ul>
-      </div>
-
-      <div class="sidebar-block">
-        <h4>Attending</h4>
-        <ul>
-          <li><a href="#attending">Venue: IIIT Hyderabad</a></li>
-          <li><a href="#program">Program Schedule</a></li>
-          <li><a href="#home">Keynote Speakers</a></li>
-        </ul>
-      </div>
-
-      <div class="sidebar-block">
-        <h4>Latest News</h4>
-        <ul>
-          <li><a href="#home">Conference page is now live<br/><small style="color:#999;">Apr 2026</small></a></li>
-          <li><a href="#home">Registration will open soon<br/><small style="color:#999;">Coming soon</small></a></li>
-        </ul>
-      </div>
-
-      <div class="sidebar-block">
-        <h4>Co-hosts</h4>
-        <div class="box-body">
-          <table>
-            <tr><td><strong>Infosys</strong></td><td>Industry Co-host</td></tr>
-            <tr><td><strong>IIIT Hyderabad</strong></td><td>Academic Co-host</td></tr>
-          </table>
-        </div>
-      </div>
-
-      <div class="sidebar-block" id="search-section">
-        <h4>Search</h4>
-        <div style="padding:10px 14px;">
-          <input type="text" placeholder="Search conference..." style="width:100%;padding:6px 8px;border:1px solid #ccc;border-radius:3px;font-size:13px;" />
-        </div>
-      </div>
-
-      <div class="sidebar-block" id="series">
-        <h4>Conference Series</h4>
-        <ul>
-          <li><a href="https://conf.researchr.org/home/seri-2026" target="_blank" rel="noopener noreferrer">SERI 2026 Conference Series</a></li>
-          <li><a href="https://conf.researchr.org/" target="_blank" rel="noopener noreferrer">ResearchR Conferences</a></li>
-        </ul>
-      </div>
-
-    </aside>
-
-  </div>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    using <a href="https://conf.researchr.org/" target="_blank" rel="noopener noreferrer">conf.researchr.org</a>
-    | <a href="https://conf.researchr.org/home/seri-2026" target="_blank" rel="noopener noreferrer">SERI Industry Day Conference 2026</a>
-    | Sat 18 July 2026
-    | <a href="#attending">IIIT Hyderabad, India</a>
-  </footer>
+<footer>
+  <p>&copy; 2026 SERI Industry Day Workshop | Infosys &amp; IIIT Hyderabad</p>
+</footer>
 
 </body>
 </html>
