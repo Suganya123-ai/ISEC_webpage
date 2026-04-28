@@ -23,7 +23,7 @@
 <header>
   <h1>SERI Industry Day Workshop 2026</h1>
   <p>Testing and Verification of Agentic AI Systems | Sat 18 July 2026 | IIIT Hyderabad, Telangana, India</p>
-  <p><a href="#attending" style="color:white;">Venue: IIIT Hyderabad</a> | <a href="#program" style="color:white;">Program</a> | <a href="#tracks" style="color:white;">Tracks</a> | <a href="#objectives" style="color:white;">Objectives</a></p>
+  <p><a href="#attending" style="color:white;">Venue: IIIT Hyderabad</a> | <a href="#program" style="color:white;">Program</a> | <a href="#objectives" style="color:white;">Objectives</a></p>
 </header>
 
 <main>
@@ -51,61 +51,39 @@
   <section id="objectives">
     <h2>Objectives</h2>
     <ol>
-      <li><strong>Bridge Academia-Industry Gap:</strong> Foster collaboration between academic researchers and industry practitioners working on AI system verification.</li>
-      <li><strong>Share Best Practices:</strong> Learn production-grade testing methodologies and lessons learned from deploying agentic AI at enterprise scale.</li>
-      <li><strong>Explore Research Frontiers:</strong> Gain insight into the verification landscape and current research directions in agentic AI system testing.</li>
-      <li><strong>Understand Robustification Techniques:</strong> Learn robustification and alignment approaches for dependable behavior under perturbation and deployment drift.</li>
-      <li><strong>Discuss Adversarial Methods:</strong> Explore adversarial testing methods, defense mechanisms, and resilience measurement for autonomous agents.</li>
-      <li><strong>Learn Test Suite Design Principles:</strong> Understand systematic approaches to test suite design for meaningful coverage of agent behavior spaces in production environments.</li>
-      <li><strong>Explore Advanced Metrics:</strong> Learn about advanced metrics beyond accuracy — including PAC-based certification, harmonic mean metrics, and multi-dimensional performance measurement.</li>
-      <li><strong>Discover Tools and Frameworks:</strong> Gain awareness of tools like RAGAS, LangSmith, and Guardrails AI for agent evaluation through expert presentations.</li>
-      <li><strong>Build Professional Networks:</strong> Strengthen professional networks connecting academia, industry, and research communities for sustained collaboration.</li>
+      <li><strong>Bridge the Academia–Industry Gap:</strong> Foster meaningful collaboration between academic researchers and industry practitioners working on the testing, evaluation, and assurance of autonomous and agentic AI systems.</li>
+      <li><strong>Share Practical Experience from Real-World Deployments:</strong> Enable the exchange of insights, challenges, and lessons learned from deploying and operating agentic AI systems in production and applied research environments.</li>
+      <li><strong>Explore Emerging Research Directions:</strong> Provide visibility into current and emerging research questions in the testing, robustness, and verification of autonomous agents, highlighting areas where academic and industrial perspectives intersect.</li>
+      <li><strong>Understand Robustness and Alignment Considerations:</strong> Discuss high-level approaches to achieving dependable agent behavior under uncertainty, environmental variability, and deployment drift, drawing from both research and practice.</li>
+      <li><strong>Discuss Adversarial and Stress-Testing Perspectives:</strong> Examine how autonomous agents can be evaluated under challenging, unexpected, or adversarial conditions, and how system resilience can be reasoned about and assessed.</li>
+      <li><strong>Reason About Systematic Evaluation and Coverage:</strong> Explore principles for designing meaningful evaluation strategies that provide adequate coverage of agent behaviors and interactions in realistic settings.</li>
+      <li><strong>Broaden the View on Performance Assessment:</strong> Encourage discussion on performance evaluation beyond narrow metrics, considering reliability, safety, consistency, robustness, and other multi-dimensional aspects relevant to agentic systems.</li>
+      <li><strong>Survey Practical Evaluation and Testing Approaches:</strong> Increase awareness of practitioner and research-driven approaches to testing and evaluating autonomous agents, without prescribing specific tools or implementation choices.</li>
+      <li><strong>Build Sustained Professional Networks:</strong> Strengthen long-term connections across academia, industry, and applied research labs to enable continued collaboration, joint publications, and follow-on initiatives.</li>
     </ol>
-  </section>
-
-  <section id="abstract">
-    <h2>Abstract</h2>
-    <p>
-      Autonomous AI agents are increasingly embedded in safety-critical and mission-critical software systems —
-      from healthcare decision support and financial trading to industrial automation and intelligent assistants.
-      Unlike conventional software, these agentic systems exhibit non-deterministic behavior, emergent properties,
-      and complex environmental interactions, making traditional testing and verification approaches inadequate.
-      The rapid transition from research labs to production deployments has created a critical gap in testing methodologies and best practices.
-    </p>
-    <p>
-      This full-day <strong>industry-academia workshop</strong> addresses the urgent need for rigorous, systematic methodologies to test and verify
-      agentic AI systems at enterprise scale. The workshop brings academic researchers and industry practitioners together to share insights,
-      discuss practical challenges, and collaborate on solutions covering:
-    </p>
-    <ul>
-      <li><strong>Production-Grade Testing:</strong> Real-world deployment challenges and testing strategies from industry leaders like Infosys</li>
-      <li><strong>Robustification and Alignment:</strong> Ensuring agent behavior remains aligned with human intent under distribution shift and drift</li>
-      <li><strong>Adversarial Learning and Resilience:</strong> Building defense mechanisms and measuring resilience of agentic systems</li>
-      <li><strong>Systematic Test Case Generation:</strong> Creating comprehensive test suites for autonomous agents</li>
-      <li><strong>Advanced Performance Metrics:</strong> Moving beyond accuracy to include cost, latency, safety, and compliance metrics</li>
-      <li><strong>Tools and Frameworks:</strong> Expert presentations on RAGAS, LangSmith, and Guardrails AI for enterprise deployment</li>
-    </ul>
   </section>
 
   <section id="motivation">
     <h2>Motivation</h2>
-    <h3>Why Traditional Testing Fails for Agents</h3>
+    <h3>Why Traditional Testing Falls Short for Autonomous and Agentic Systems</h3>
+    <p>Autonomous and agentic AI systems introduce fundamental challenges that are not well addressed by traditional software testing and verification practices:</p>
     <ul>
-      <li><strong>Non-determinism:</strong> Agent outputs vary across runs due to stochastic components, environment dynamics, and LLM sampling — making regression testing unreliable.</li>
-      <li><strong>Emergent Behavior:</strong> Complex outcomes arise from agent-environment interactions that cannot be predicted from component-level tests alone.</li>
-      <li><strong>Safety-Critical Autonomy:</strong> Agents make autonomous decisions with real-world consequences, requiring rigorous verification before deployment.</li>
-      <li><strong>Alignment Drift:</strong> Goals and behaviors may diverge from human intent over time as agents adapt to new environments and scenarios.</li>
-      <li><strong>Exponential State Spaces:</strong> Testing burden grows combinatorially with environment complexity, making exhaustive testing infeasible.</li>
-      <li><strong>Regulatory Compliance:</strong> Increasing regulations (EU AI Act, NIST AI RMF) require demonstrable verification and compliance evidence.</li>
+      <li><strong>Non-Deterministic Execution:</strong> Agent behavior can vary across runs due to stochastic decision processes, adaptive policies, and changing environments, limiting the effectiveness of conventional regression testing.</li>
+      <li><strong>Emergent System Behavior:</strong> System-level outcomes arise from interactions between agents, environments, and users, making behavior difficult to infer from component-level tests alone.</li>
+      <li><strong>High-Impact Autonomous Decisions:</strong> Agents increasingly make decisions with real-world consequences in operational settings, elevating the importance of rigorous pre-deployment evaluation and assurance.</li>
+      <li><strong>Behavioral Drift Over Time:</strong> As agents adapt to new data, tasks, or environments, their behavior may gradually diverge from original intent, expectations, or safety assumptions.</li>
+      <li><strong>Combinatorial State Spaces:</strong> The number of possible states, interactions, and execution paths grows rapidly with system complexity, rendering exhaustive testing infeasible.</li>
+      <li><strong>Evolving Regulatory Expectations:</strong> Emerging governance and regulatory regimes increasingly require demonstrable evidence of testing, evaluation, and responsible system behavior.</li>
     </ul>
 
-    <h3>Why Now: Industry Urgency</h3>
+    <h3>Why Now: Industry and Research Urgency</h3>
+    <p>Several converging factors make this an urgent and timely moment to focus on the testing and assurance of agentic AI systems:</p>
     <ul>
-      <li><strong>Production Deployments at Scale:</strong> LLM-based agents (AutoGPT, CrewAI, LangGraph) are entering production systems at enterprise scale.</li>
-      <li><strong>Regulatory Pressure:</strong> Regulatory frameworks are emerging globally, requiring organizations to demonstrate robust testing and verification practices.</li>
-      <li><strong>Safety and Trust Concerns:</strong> High-profile AI failures and incidents underscore the critical need for rigorous verification before deployment.</li>
-      <li><strong>Industry Leadership:</strong> Forward-thinking organizations like Infosys are investing in production-grade testing methodologies and sharing their experience.</li>
-      <li><strong>Community Need:</strong> The software engineering community needs proven frameworks, tools, and best practices before deployment outpaces governance.</li>
+      <li><strong>Rapid Transition from Research to Production:</strong> Agent-based systems are moving quickly from experimental settings into large-scale, real-world deployments across industries.</li>
+      <li><strong>Growing Accountability and Compliance Demands:</strong> Organizations are under increasing pressure to justify system behavior, manage risk, and provide evidence of responsible AI practices.</li>
+      <li><strong>Rising Safety and Trust Expectations:</strong> High-visibility failures and public scrutiny have heightened expectations around reliability, robustness, and trustworthiness.</li>
+      <li><strong>Need for Shared Understanding Across Communities:</strong> Academia and industry are tackling the same problems from different angles, yet often lack common forums to align perspectives and priorities.</li>
+      <li><strong>Opportunity for Collective Leadership:</strong> Bringing together researchers and practitioners at this stage creates a valuable opportunity to shape future research directions, evaluation norms, and collaborative efforts.</li>
     </ul>
   </section>
 
@@ -114,7 +92,7 @@
     <p>
       International Institute of Information Technology, Hyderabad<br>
       Gachibowli, Hyderabad, Telangana 500 032, India<br>
-      <a href="[google.com](https://www.google.com/maps/search/?api=1&query=IIIT+Hyderabad)" target="_blank">View on Google Maps</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=IIIT+Hyderabad" target="_blank">View on Google Maps</a>
     </p>
   </section>
 
@@ -123,35 +101,24 @@
     <p><strong>Date:</strong> Saturday, July 18, 2026 | <strong>Duration:</strong> Full day, 09:00 - 14:35</p>
     <table>
       <tr><th>Time</th><th>Session</th></tr>
-      <tr><td>09:00</td><td>Opening Remarks &amp; Welcome (15 min)</td></tr>
+      <tr><td>09:00</td><td>Opening Remarks & Welcome (15 min)</td></tr>
       <tr><td>09:15</td><td>Keynote 1 – International Speaker (45 min) <span class="badge">Keynote</span></td></tr>
       <tr><td>10:00</td><td>Tea Break (15 min) <span class="badge">Break</span></td></tr>
       <tr><td>10:15</td><td>Keynote 2 – India Industry Leader (45 min) <span class="badge">Keynote</span></td></tr>
       <tr><td>11:00</td><td>Invited Talks 1–3 (60 min: 3 × 20 min)</td></tr>
       <tr><td>12:00</td><td>Lunch Break (45 min) <span class="badge">Break</span></td></tr>
       <tr><td>12:45</td><td>Invited Talks 4–5 (40 min: 2 × 20 min)</td></tr>
-      <tr><td>13:25</td><td>Transition &amp; Discussion (10 min)</td></tr>
+      <tr><td>13:25</td><td>Transition & Discussion (10 min)</td></tr>
       <tr><td>13:35</td><td>Panel 1 – "Industry Challenges in Agentic AI Testing" (25 min, 5 panelists) <span class="badge">Panel</span></td></tr>
       <tr><td>14:00</td><td>Panel 2 – "Future of AI Verification Research and Practice" (20 min, 5 panelists) <span class="badge">Panel</span></td></tr>
-      <tr><td>14:20</td><td>Closing Remarks &amp; Networking (15 min)</td></tr>
+      <tr><td>14:20</td><td>Closing Remarks & Networking (15 min)</td></tr>
       <tr><td>14:35</td><td>End</td></tr>
     </table>
   </section>
 
-  <section id="tracks">
-    <h2>Tracks &amp; Topics</h2>
-    <ul>
-      <li>Robustification and Alignment</li>
-      <li>Adversarial Learning and Resilience</li>
-      <li>Systematic Test Case Generation</li>
-      <li>Performance Metrics and Certification</li>
-      <li>Tools and Frameworks (RAGAS)</li>
-    </ul>
-  </section>
-
   <section id="organization">
     <h2>Organization</h2>
-    <p><strong>Co-hosts:</strong> Infosys &amp; IIIT Hyderabad</p>
+    <p><strong>Co-hosts:</strong> Infosys & IIIT Hyderabad</p>
     <p><strong>Organizing Committee:</strong> Details will be announced soon.</p>
     <p><strong>Contact:</strong> For inquiries, please reach out to the organizing committee.</p>
   </section>
@@ -159,28 +126,21 @@
   <section id="sponsorship">
     <h2>Sponsorship</h2>
     <p>This workshop is co-hosted by <strong>Infosys</strong> and <strong>IIIT Hyderabad</strong>. For additional sponsorship opportunities, please contact the organizing committee.</p>
-    <ul>
-      <li>Robustification and Alignment</li>
-      <li>Adversarial Learning and Resilience</li>
-      <li>Systematic Test Case Generation</li>
-      <li>Performance Metrics and Certification</li>
-      <li>Tools and Frameworks (RAGAS)</li>
-    </ul>
     <table>
       <tr><th>Co-host</th><th>Role</th></tr>
       <tr><td><strong>Infosys</strong></td><td>Industry Co-host</td></tr>
       <tr><td><strong>IIIT Hyderabad</strong></td><td>Academic Co-host</td></tr>
     </table>
     <p>
-      <a href="[conf.researchr.org](https://conf.researchr.org/home/seri-2026)">SERI 2026 Conference Series</a> |
-      <a href="[conf.researchr.org](https://conf.researchr.org/)">ResearchR Conferences</a>
+      <a href="https://conf.researchr.org/home/seri-2026">SERI 2026 Conference Series</a> |
+      <a href="https://conf.researchr.org/">ResearchR Conferences</a>
     </p>
   </section>
 
 </main>
 
 <footer>
-  <p>&copy; 2026 SERI Industry Day Workshop | Infosys &amp; IIIT Hyderabad</p>
+  <p>© 2026 SERI Industry Day Workshop | Infosys & IIIT Hyderabad</p>
 </footer>
 
 </body>
